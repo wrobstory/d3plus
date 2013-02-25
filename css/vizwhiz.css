@@ -1,0 +1,67 @@
+body {
+  color: #000;
+  font-family: 'Georgia', serif;
+  font-size: 17px;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Garamond', 'Georgia', serif;
+  font-weight: normal;
+  margin: 0 0 10px 0;
+}
+h2 {
+  border-bottom: solid 1px #000;
+  font-size: 26px;
+}
+
+a {
+  color: #ff9933;
+  text-decoration: none;
+}
+
+p {
+  line-height: 1.3em;
+}
+
+header, section, footer {
+  margin: auto;
+  padding: 20px 0;
+  width: 500px;
+}
+
+header h1 {
+  font-size: 44px;
+  margin: 0;
+}
+header h1 a {
+  color: #000;
+}
+header p.tagline {
+  font-size: 14px;
+}
+
+nav {
+  margin: 30px 0 20px 0;
+}
+  nav ul li {
+    display: inline-block;
+  }
+  nav ul li a {
+    padding: 0 10px;
+  }
+  nav ul li a.current {
+    color: #000;
+  }
+  nav ul li:first-child a {
+    padding: 0 10px 0 0;
+  }
+  nav ul.subnav {
+    font-size: 14px;
+    margin: 10px 0 0 0;
+  }
+  nav ul.subnav li a{
+    padding: 0 5px;
+  }
+  nav ul.subnav li:first-child a {
+    padding: 0 5px 0 0;
+  }
