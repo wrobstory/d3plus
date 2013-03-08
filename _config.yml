@@ -1,0 +1,3 @@
+auto: false
+source: ./template
+destination: ./docs
