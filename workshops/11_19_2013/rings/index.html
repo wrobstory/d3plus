@@ -1,0 +1,24 @@
+---
+layout: workshop
+title: Building a Ring Network
+---
+
+<h2 class="bar">What Is It?</h2>
+<section>
+  <p>
+    The rings visualization is a close cousin to the network, they both require an auxiliary file of nodes and edges. The difference here is that rings doesn't show the whole network but instead an "egocentric" view of a single node's primary and secondary connections. The user is able to then click on a different node to make that the center of attention and navigate through the network one node at a time.
+  </p>
+  <p>
+    Similar to the network, rings requires setting the <code>.nodes()</code> and <code>.edges()</code> functions which each take arrays in the format specified on the network page. A unique attribute of the rings function is <code>.highlight()</code> method which expects a value of the type specified by the <code>.id()</code> attribute. Thus in the example below we pass an "artist_id" to <code>.highlight()</code>, centering the visualization on <em>that</em> artist.
+  </p>
+</section>
+<section class="topic-2">
+  <div class="example">
+    <iframe style="height: 220px" src="/million_songs/rings_artists.html"></iframe>
+    <a class="button tertiary standalone" href="/million_songs/rings_artists.html" target="_blank">View standalone &rarr;</a>
+    <br><br>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/alexandersimoes/7520330.js"></script>
+  </div>
+</section>

@@ -1,0 +1,20 @@
+name: D3plus
+navigation:
+- text: Workshops
+  url: /workshops/11_19_2013/intro/
+# - text: Examples
+#   url: /examples/
+- text: Download
+  url: /d3plus.v1.zip
+
+workshop_11_19_2013_nav:
+- text: Intro
+  url: /workshops/11_19_2013/intro/
+- text: D3plus (Data/Attr)
+  url: /workshops/11_19_2013/d3plus/
+- text: Tree Map
+  url: /workshops/11_19_2013/tree_map/
+- text: Network
+  url: /workshops/11_19_2013/network/
+- text: Rings
+  url: /workshops/11_19_2013/rings/

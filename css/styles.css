@@ -1,0 +1,240 @@
+/*
+  GENERAL STUFF
+  -------------
+*/
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+h1,h2,h3,h4,h5 {
+  font-weight: normal;
+}
+a {
+  text-decoration: none;
+  color: #b35c1e; /* rust */
+}
+a:hover {
+  color: #fe9600; /* orange */
+}
+.clear {
+  clear: both;
+  height: 0px;
+  font-size: 0;
+}
+
+
+/*
+  HEADER
+  ------
+*/
+header {
+  font-size: 14px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #e0e0e0;
+  margin-bottom: 43px;
+  display: block;
+}
+header h1 {
+  display: inline-block;
+  margin: 0;
+}
+header h1 a {
+  color: #404040;
+  font-size: 18px;
+  padding: 0.7em 1em;
+  display: inline-block;
+  font-weight: normal;
+}
+header h1 a:hover {
+  color: #808080;  
+}
+header h2 {
+  color: #b35c1e; /* rust */
+}
+header a {
+  color: #909090;
+  padding: 0 0.5em;
+}
+header a.active {
+  color: #000;
+  text-decoration: none;
+}
+
+
+/*
+  PAGE CONTENT
+  ------------
+*/
+#content {
+  width: 990px;
+  padding: 0 10px;
+  margin: auto;
+  font-size: 14px;
+  color: #282828;
+  line-height: 155%;
+}
+#content h2.bar {
+  background: #bbb;
+  color: white;
+  padding: 0.5em 0.75em 0.67em;
+}
+
+section.topic-2,
+section.topic-3 {
+  display: table; 
+  table-layout: fixed;
+  border-top: 1px solid #dedede;
+  margin-top: 2%;
+  width: 100%;
+}
+h2 + section.topic-2,
+h2 + section.topic-3 {
+  border: none;
+}
+section.topic-2 .example,
+section.topic-3 .example {
+  padding-top: 2%;
+  padding-right: 2%;
+  vertical-align: top;
+  display: table-cell;
+}
+section.topic-2 .example iframe,
+section.topic-3 .example iframe {
+  position: relative;
+  left: -5px;
+  width: 100%;
+  border: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+section.topic-2 .code,
+section.topic-3 .code {
+  padding-top: 2%;
+  vertical-align: top;
+  display: table-cell;
+}
+section.topic-2 .example {
+  width: 33%
+}
+section.topic-2 .code {
+  width: 67%;
+}
+section.topic-3 .example {
+  width: 33%;
+}
+section .example iframe {
+  height: 110px;
+}
+section .example .button {
+  margin: 30px 0 0 0;
+}
+section.topic-3 .call {
+  padding-top: 2%;
+  display: table-cell;
+  width: 18%;
+  text-align: center;
+  vertical-align: middle;
+}
+section h3 {
+  color: #585858;
+  margin: 0 0 0.4em 0;
+}
+section.topic-2 .documentation {
+  display: table-cell;
+  width: 67%;
+}
+section.topic-2 .documentation pre {
+  font-family: 'Bitstream Vera Sans Mono','Courier',monospace;
+  padding: 1em;
+  background-color: #f0f0f0;
+  margin-bottom: 1.4em;
+}
+
+div.note {
+  font-style: italic;
+  font-size: 12px;
+  margin: 30px 0 0 0;
+}
+p.learn_more {
+  background: #ffffca;
+  padding: 10px;
+}
+
+
+/*
+  BUTTONS!
+  --------
+
+  Taken from bl.ocks.org. Thanks!
+*/
+.button {
+  display: inline-block;
+  padding: 4px 10px 4px;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 18px;
+  color: #333;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  vertical-align: middle;
+  background-color: whiteSmoke;
+  background-image: -moz-linear-gradient(top, white, #E6E6E6);
+  background-image: -ms-linear-gradient(top, white, #E6E6E6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#E6E6E6));
+  background-image: -webkit-linear-gradient(top, white, #E6E6E6);
+  background-image: -o-linear-gradient(top, white, #E6E6E6);
+  background-image: linear-gradient(top, white, #E6E6E6);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+  border-color: #E6E6E6 #E6E6E6 #BFBFBF;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+  border: 1px solid #CCC;
+  border-bottom-color: #B3B3B3;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+.button:hover {
+  opacity: 0.92;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+.button.red {
+  background-color: #FAA732;
+  background-image: -moz-linear-gradient(top, #e8480e, #c73e0c);
+  background-image: -ms-linear-gradient(top, #e8480e, #c73e0c);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e8480e), to(#c73e0c));
+  background-image: -webkit-linear-gradient(top, #e8480e, #c73e0c);
+  background-image: -o-linear-gradient(top, #e8480e, #c73e0c);
+  background-image: linear-gradient(top, #e8480e, #c73e0c);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fbb450', endColorstr='#f89406', GradientType=0);
+  border-color: #c73e0c #c73e0c #AD6704;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  color: white;
+}
+.button.large {
+  padding: 11px 16px;
+  font-size: 18px;
+  line-height: normal;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.button.tertiary {
+  color: #b35c1e;
+}
+.button.tertiar:hover {
+  color: #fe9600;
+}
