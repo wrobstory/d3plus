@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Building a Stacked Area Chart</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="javascript data visualization tool engine built on  top of D3.js"/>
+
+        <!-- Custom CSS -->
+        <link href="/css/styles.css" media="screen" rel="stylesheet" type="text/css" />
+
+    </head>
+    <body>
+      
+      <a href="https://github.com/alexandersimoes/d3plus"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+      <header>
+        <h1><a href="/">D3plus</a></h1>
+        
+        
+        <a  href="/workshops/11_19_2013/intro/" title="">Workshops</a>
+        
+        <a  href="/d3plus.v1.zip" title="">Download</a>
+        
+      </header>
+      
+      
+      <div id="content">
+        <section class="content">
+  <header>
+    <h2>Workshop 1: November 19th, 2013</h2>
+    
+    
+    <a  href="/workshops/11_19_2013/intro/" title="">Intro</a>
+    
+    <a  href="/workshops/11_19_2013/d3js/" title="">D3js</a>
+    
+    <a  href="/workshops/11_19_2013/d3plus/" title="">Data and Attributes</a>
+    
+    <a  href="/workshops/11_19_2013/tree_map/" title="">Tree Map</a>
+    
+    <a class="active" href="/workshops/11_19_2013/stacked/" title="">Stacked</a>
+    
+    <a  href="/workshops/11_19_2013/network/" title="">Network</a>
+    
+    <a  href="/workshops/11_19_2013/rings/" title="">Rings</a>
+    
+  </header>
+  
+  <div class="post">
+  <h2 class="bar">Data Over Time</h2>
+<section>
+  <p>
+    It is very common in the world of data visualization that you find yourself needing to show the evolution of your dataset over time. One way in which this can be achieved is with a stacked area chart. Similar to a typical X, Y chart the y axis represents a value while the x axis is devoted to a time series (in our case years).
+  </p>
+  <h3>How to Call Stacked</h3>
+  <p>
+    The structure of instantiating a D3plus visualization is the same for all the different types. The only difference is the the methods that can, and are sometime required to be called. For example, we saw the <code>.year()</code> method in use for the tree map example yet because stacked shows data for all years it would not make sense to use this method. The unique methods that are required for this visualization are <code>.yaxis()</code>, <code>.xaxis()</code> and <code>.xaxis_domain()</code>. In the example below we set our <code>.yaxis()</code> to song duration and <code>.xaxis()</code> to year. Therefore our <code>.xaxis_domain()</code> is a range of years witht he bounds in a 2 element array.
+  </p>
+  <h3>Soloing the data</h3>
+  <p>
+    One of the methods on viz that are available to all visualizations is <code>.solo()</code>. By passing an array of any of the id values (for any nesting level if your data is nested) the visualization will only show those data points. This can be extremely useful for trying to focus on a single aspect of the data or if you dataset is quite large to be able to show a more legible subset. To disable the soloing of a visualization set <code>.solo()</code> to an empty array.
+  </p>
+</section>
+<section class="topic-2">
+  <div class="example">
+    <iframe style="height: 220px" src="/million_songs/stacked.html"></iframe>
+    <a class="button tertiary standalone" href="/million_songs/rings_stacked.html" target="_blank">View standalone &rarr;</a>
+    <br><br>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/alexandersimoes/7536375.js"></script>
+  </div>
+</section>
+  </div>
+</section>
+      </div>
+      
+      
+      <script type="text/javascript">
+
+      // Google Analytics
+      
+      </script>
+
+    </body>
+</html>
