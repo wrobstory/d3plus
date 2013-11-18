@@ -10,7 +10,9 @@ navigation:
 workshop_11_19_2013_nav:
 - text: Intro
   url: /workshops/11_19_2013/intro/
-- text: D3plus (Data/Attr)
+- text: D3js
+  url: /workshops/11_19_2013/d3js/
+- text: Data and Attributes
   url: /workshops/11_19_2013/d3plus/
 - text: Tree Map
   url: /workshops/11_19_2013/tree_map/
