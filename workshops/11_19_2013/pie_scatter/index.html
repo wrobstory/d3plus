@@ -1,0 +1,25 @@
+---
+layout: workshop
+title: Building a Pie Scatter
+---
+
+<h2 class="bar">Scatter Plots of Nested Data</h2>
+<section>
+  <p>
+    Sometimes the best way of comparing two different attributes of your data is to simply plot them on an X, Y plane. Visually, large datasets can suffer from over crowding of nodes thus reducing legibility. One solution, used throughout the other visualizations is to allow nesting of nodes to get a clearer idea of the overall picture. What you sacrifice in accuracy, you gain in legibility.
+  </p>
+  <h3>A Note on Scale</h3>
+  <p>
+    The only specific methods for the pie scatter visualization are <code>.xaxis_scale()</code> and <code>.yaxis_scale()</code>. If these methods are not used, they will default to linear, they can also accept the the value "log".
+  </p>
+</section>
+<section class="topic-2">
+  <div class="example">
+    <iframe style="height: 220px" src="/million_songs/pie_scatter.html"></iframe>
+    <a class="button tertiary standalone" href="/million_songs/pie_scatter.html" target="_blank">View standalone &rarr;</a>
+    <br><br>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/alexandersimoes/7537249.js"></script>
+  </div>
+</section>
