@@ -18,9 +18,11 @@ workshop_11_19_2013_nav:
   url: /workshops/11_19_2013/tree_map/
 - text: Stacked
   url: /workshops/11_19_2013/stacked/
+- text: Pie Scatter
+  url: /workshops/11_19_2013/pie_scatter/
 - text: Network
   url: /workshops/11_19_2013/network/
 - text: Rings
   url: /workshops/11_19_2013/rings/
-- text: Pie Scatter
-  url: /workshops/11_19_2013/pie_scatter/
+- text: Future Development
+  url: /workshops/11_19_2013/future
