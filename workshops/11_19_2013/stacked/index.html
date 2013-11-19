@@ -27,3 +27,35 @@ title: Building a Stacked Area Chart
     <script src="https://gist.github.com/alexandersimoes/7536375.js"></script>
   </div>
 </section>
+
+<h2 class="bar">Quiz</h2>
+<section class="topic-2">
+  <div class="example"><h3>Here are some other things to try out!</h3></div>
+  <div class="code">
+    <h3>Layout</h3>
+    <p>
+      The Stacked layout can be changed from "value" to "share" via <code>.layout()</code>, try changing this attribute and seeing what it does to the visualization.
+    </p>
+    <h3>Order</h3>
+    <p>
+      Be default stacked will order items based on what is passed to the <code>.value()</code> method, but this can be overridden via the <code>.order()</code> method. Try ordering the example with different attributes of the data.
+    </p>
+    <h3>Sort</h3>
+    <p>
+      The sorting can also be changed from ascending to descending via <code>.sort()</code>, trying changing this attribute to see which you prefer.
+    </p>
+  </div>
+</section>
+
+<h2 class="bar">Extra Credit</h2>
+<section class="topic-2">
+  <div class="example">Feeling adventurous? Let's look into the source to see some of the more advanced functions of D3plus.</div>
+  <div class="code">
+    <h3>Label Positioning</h3>
+    <p>
+    Positioning labels dynamically on any chart is tough work, just like the tree maps there are many edge cases that need to be tested. What happens when the area is too small? What happens when it is too close to the left or right hand sides? Take a look at the source code and see if you spot any inefficiencies or ways you could think to improve it!
+    <br><br>
+    <a href="https://github.com/alexandersimoes/d3plus/blob/master/src/apps/stacked.js#L371-L432" target="_blank">View the Source</a>
+    </p>
+  </div>
+</section>
