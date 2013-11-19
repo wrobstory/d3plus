@@ -95,6 +95,34 @@
     <script src="https://gist.github.com/alexandersimoes/7519739.js"></script>
   </div>
 </section>
+
+<h2 class="bar">Quiz</h2>
+<section class="topic-2">
+  <div class="example"><h3>Here are some other things to try out!</h3></div>
+  <div class="code">
+    <h3>Active</h3>
+    <p>
+    Network, along with some other D3plus apps, supports the <code>.active()</code> variable. When this variable is defined, the Network app will find this variable in the data, and darken nodes in the Network when it returns <code>true</code>. You'll have to loop through our sample dataset manually to set the active variable for each data point, but give it a try!
+    </p>
+    <h3>Spotlight</h3>
+    <p>
+    When an active variable is defined, the Network can "spotlight" only those active nodes by greying out all of the inactive nodes. Try setting <code>.spotlight(true)</code> after you've defined an active variable for your daya.
+    </p>
+  </div>
+</section>
+
+<h2 class="bar">Extra Credit</h2>
+<section class="topic-2">
+  <div class="example">Feeling adventurous? Let's look into the source to see some of the more advanced functions of D3plus.</div>
+  <div class="code">
+    <h3>Primary Connections</h3>
+    <p>
+    To help speed up showing a nodes primary connections on hover, we write a function to quickly create a dictionary of primary connections based on the links given. Take a look at the function and see if it can be improved!
+    <br><br>
+    <a href="https://github.com/alexandersimoes/d3plus/blob/master/src/utils/utils.js#L85-L113" target="_blank">View the Source</a>
+    </p>
+  </div>
+</section>
   </div>
 </section>
       </div>
