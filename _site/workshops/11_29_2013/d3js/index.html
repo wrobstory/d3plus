@@ -30,26 +30,28 @@
   <header>
     
     
-    <h2>Workshop 1: November 19th, 2013</h2>
+    <h2>Workshop 2: November 29th, 2013</h2>
     
     
-      <a  href="/workshops/11_19_2013/intro/">Intro</a>
+      <a  href="/workshops/11_29_2013/intro/">Intro</a>
     
-      <a class="active" href="/workshops/11_19_2013/d3js/">D3js</a>
+      <a  href="/workshops/11_29_2013/started/">Getting Started</a>
     
-      <a  href="/workshops/11_19_2013/d3plus/">Data and Attributes</a>
+      <a class="active" href="/workshops/11_29_2013/d3js/">D3js</a>
     
-      <a  href="/workshops/11_19_2013/tree_map/">Tree Map</a>
+      <a  href="/workshops/11_29_2013/d3plus/">Data and Attributes</a>
     
-      <a  href="/workshops/11_19_2013/stacked/">Stacked</a>
+      <a  href="/workshops/11_29_2013/tree_map/">Tree Map</a>
     
-      <a  href="/workshops/11_19_2013/pie_scatter//">Pie Scatter</a>
+      <a  href="/workshops/11_29_2013/stacked/">Stacked</a>
     
-      <a  href="/workshops/11_19_2013/network/">Network</a>
+      <a  href="/workshops/11_29_2013/pie_scatter//">Pie Scatter</a>
     
-      <a  href="/workshops/11_19_2013/rings/">Rings</a>
+      <a  href="/workshops/11_29_2013/network/">Network</a>
     
-      <a  href="/workshops/11_19_2013/future/">Future Development</a>
+      <a  href="/workshops/11_29_2013/rings/">Rings</a>
+    
+      <a  href="/workshops/11_29_2013/future/">Future Development</a>
     
   </header>
   
@@ -64,12 +66,7 @@
   </p>
 </section>
 
-<h2 class="bar">How much D3 do I need to know?</h2>
-<section>
-  <p>
-    Not a lot. One of the goals of D3plus is to handle as much of the work as possible, so there are only a few concepts you need to know to get started.
-  </p>
-</section>
+<h2 class="bar">How to use D3</h2>
 <section class="topic-2">
   <div class="example">
     <h3>Selecting a DOM element</h3>
@@ -81,11 +78,36 @@
     <script src="https://gist.github.com/davelandry/7535804.js"></script>
   </div>
 </section>
+
 <section class="topic-2">
   <div class="example">
-    <h3>Calling a function on a D3 element</h3>
+    <h3>Adding a DOM element to the page</h3>
     <div class="note">
-      <p><code>.call()</code> will invoke a specific function on a D3 selection. In this example, we are using the "call" ability to change the ID of our container DIV from "container" to "visualization". You can read more about the D3 call attribute <a href="https://github.com/mbostock/d3/wiki/Selections#wiki-call" target="_blank">here</a>.</p>
+      <p><code>.append()</code> will add a new element to the page. In this example, we are creating a "div" node to add to the page. You can read more about how this works <a href="https://github.com/mbostock/d3/wiki/Selections#wiki-append" target="_blank">here</a>.</p>
+    </div>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/davelandry/7536038.js"></script>
+  </div>
+</section>
+
+<section class="topic-2">
+  <div class="example">
+    <h3>Binding Data to DOM elements</h3>
+    <div class="note">
+      <p>So far everything we've done can be done via <a href="http://jquery.com/">jQuery</a>. <code>.data()</code> will enable the user to bind data to specific elements on the page thus driving their appearance or disappearance. In this example, we are binding a simple array of values to our previous "div" node that is already on the page. You can read more about how the data operator <a href="https://github.com/mbostock/d3/wiki/Selections#data">here</a>.</p>
+    </div>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/davelandry/7536038.js"></script>
+  </div>
+</section>
+
+<section class="topic-2">
+  <div class="example">
+    <h3>Dynamically Adding Elements New Elements With Data</h3>
+    <div class="note">
+      <p>Now you may be wondering what happens to the other 2 elements in the data array, since their is only 1 <code>&lt;div&gt;</code> but 3 numbers in our array. Well, D3 is </p>
     </div>
   </div>
   <div class="code">

@@ -4,10 +4,12 @@ layout: default
 
 <section class="content">
   <header>
-    <h2>Workshop 1: November 19th, 2013</h2>
+    {% assign date = page.url|split:'/' %}
+    {% assign date = date[2]|prepend:'nav_' %}
+    <h2>{{ site.workshops.[date].title }}</h2>
     {% assign url = page.url|remove:'index.html' %}
-    {% for link in site.workshop_11_19_2013_nav %}
-    <a {% if url contains link.url %}class="active"{% endif %} href="{{link.url}}" title="{{link.title}}">{{link.text}}</a>
+    {% for link in site.workshops.[date].links %}
+      <a {% if url contains link.url %}class="active"{% endif %} href="/workshops/{{ date|remove:'nav_' }}/{{ link.url }}/">{{link.text}}</a>
     {% endfor %}
   </header>
   

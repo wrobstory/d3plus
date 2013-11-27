@@ -18,7 +18,7 @@
         <h1><a href="/">D3plus</a></h1>
         
         
-        <a  href="/workshops/11_19_2013/intro/" title="">Workshops</a>
+        <a  href="/workshops/" title="">Workshops</a>
         
         <a  href="/d3plus.v1.zip" title="">Download</a>
         
@@ -27,33 +27,75 @@
       
       <div id="content">
         <style>
-  article div {
-    height: 300px;
-    left: 50%;
-    margin-left: -150px;
-    margin-top: -150px;
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    width: 300px;
-  }
+section#logo {
+  text-align: center;
+}
+section#links {
+  margin: auto;
+  text-align: center;
+  width: 800px;
+}
+section#links a {
+  display: inline-block;
+  margin: 20px;
+  width: 75px;
+}
+section#links a img {
+  width: 75px;
+}
 </style>
 
-<section>
-  <article>
-    <div>
-      <img src="icon.png"><br>
-      Fully functioning webpage coming soon.<br>
-      <a href="https://github.com/alexandersimoes/d3plus">Click here</a> to view the source on github.
-    </div>
-  </article>
+
+<section id="logo">
+  <img src="/assets/img/d3plus-icon.png">
 </section>
+
+<section id="links">
+  <a href="https://github.com/alexandersimoes/d3plus/stargazers">
+    <img src="/assets/img/star-icon.png">
+    <span id="stars"></span>
+  </a>
+  <a href="https://github.com/alexandersimoes/d3plus/network/members">
+    <img src="/assets/img/fork-icon.png">
+    <span id="forks"></span>
+  </a>
+  <a href="https://github.com/alexandersimoes/d3plus/">
+    <img src="/assets/img/github-icon.png">
+    View Source
+  </a>
+  <a href="https://groups.google.com/forum/#!forum/d3plus">
+    <img src="/assets/img/googlegroups-icon.png">
+    Get Help
+  </a>
+</section>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+
+  /* Grrrr... forced to use jquery because D3 does not have JSONP support */
+  
+  // get stars
+  $(function(){
+    $.getJSON('https://api.github.com/repos/alexandersimoes/d3plus?callback=?', function(d){
+      $('#stars').text(d && d.data ? d.data.stargazers_count : '');
+      $('#forks').text(d && d.data ? d.data.forks_count : '');
+    });
+  });
+  
+</script>
       </div>
       
       
       <script type="text/javascript">
 
-      // Google Analytics
+        // Google Analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46067436-1', 'd3plus.org');
+        ga('send', 'pageview');
       
       </script>
 

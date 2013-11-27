@@ -1,28 +1,55 @@
 name: D3plus
 navigation:
 - text: Workshops
-  url: /workshops/11_19_2013/intro/
+  url: /workshops/
 # - text: Examples
 #   url: /examples/
 - text: Download
   url: /d3plus.v1.zip
 
-workshop_11_19_2013_nav:
-- text: Intro
-  url: /workshops/11_19_2013/intro/
-- text: D3js
-  url: /workshops/11_19_2013/d3js/
-- text: Data and Attributes
-  url: /workshops/11_19_2013/d3plus/
-- text: Tree Map
-  url: /workshops/11_19_2013/tree_map/
-- text: Stacked
-  url: /workshops/11_19_2013/stacked/
-- text: Pie Scatter
-  url: /workshops/11_19_2013/pie_scatter/
-- text: Network
-  url: /workshops/11_19_2013/network/
-- text: Rings
-  url: /workshops/11_19_2013/rings/
-- text: Future Development
-  url: /workshops/11_19_2013/future
+workshops:
+  nav_11_19_2013:
+    title: "Workshop 1: November 19th, 2013"
+    links:
+    - text: Intro
+      url: intro
+    - text: D3js
+      url: d3js
+    - text: Data and Attributes
+      url: d3plus
+    - text: Tree Map
+      url: tree_map
+    - text: Stacked
+      url: stacked
+    - text: Pie Scatter
+      url: pie_scatter/
+    - text: Network
+      url: network
+    - text: Rings
+      url: rings
+    - text: Future Development
+      url: future
+
+  nav_11_29_2013:
+    title: "Workshop 2: November 29th, 2013"
+    links:
+    - text: Intro
+      url: intro
+    - text: Getting Started
+      url: started
+    - text: D3js
+      url: d3js
+    - text: Data and Attributes
+      url: d3plus
+    - text: Tree Map
+      url: tree_map
+    - text: Stacked
+      url: stacked
+    - text: Pie Scatter
+      url: pie_scatter/
+    - text: Network
+      url: network
+    - text: Rings
+      url: rings
+    - text: Future Development
+      url: future
