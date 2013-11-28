@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Data and Attributes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="javascript data visualization tool engine built on  top of D3.js"/>
+
+        <!-- Custom CSS -->
+        <link href="/css/styles.css" media="screen" rel="stylesheet" type="text/css" />
+
+    </head>
+    <body>
+      
+      <a href="https://github.com/alexandersimoes/d3plus"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+      <header>
+        <h1><a href="/">D3plus</a></h1>
+        
+        
+        <a class="active" href="/workshops/" title="">Workshops</a>
+        
+        <a  href="/d3plus.v1.zip" title="">Download</a>
+        
+      </header>
+      
+      
+      <div id="content">
+        <script src="/js/d3.js"></script>
+
+<section class="content">
+  <header>
+    
+    
+    <h2>Workshop 2: November 29th, 2013</h2>
+    
+    
+      <a  href="/workshops/11_29_2013/intro/">Intro</a>
+    
+      <a  href="/workshops/11_29_2013/started/">Getting Started</a>
+    
+      <a  href="/workshops/11_29_2013/svg/">SVG</a>
+    
+      <a  href="/workshops/11_29_2013/d3js/">D3js</a>
+    
+      <a class="active" href="/workshops/11_29_2013/d3plus/">Data and Attributes</a>
+    
+      <a  href="/workshops/11_29_2013/tree_map/">Tree Map</a>
+    
+      <a  href="/workshops/11_29_2013/stacked/">Stacked</a>
+    
+      <a  href="/workshops/11_29_2013/pie_scatter//">Pie Scatter</a>
+    
+      <a  href="/workshops/11_29_2013/network/">Network</a>
+    
+      <a  href="/workshops/11_29_2013/rings/">Rings</a>
+    
+      <a  href="/workshops/11_29_2013/future/">Future Development</a>
+    
+  </header>
+  
+  <div class="post">
+  <h2 class="bar">Data Formatting</h2>
+<section class="topic-2">
+  <div class="example">
+    <h3>Example data structure</h3>
+    <div class="note">
+      <p>D3plus accepts an array of keyed objects as data. There are numerous ways to load data: JSON, CSV, etc. No matter which way you chose, any will work as long as it gets passed to D3plus as an array of keyed objects.</p>
+    </div>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/davelandry/7535276.js"></script>
+  </div>
+</section>
+
+<h2 class="bar">Attribute Formatting</h2>
+<section class="topic-2">
+  <div class="example">
+    <h3>Simple Attributes (Array)</h3>
+    <div class="note">
+      <p>When you have multiple data points that may all have similar attributes, it becomes more efficient to pass attribute data that many data points can reference. In this example, the attribute data is in a similar format to the raw data, and they are matched at a specific key.</p>
+    </div>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/davelandry/7535619.js"></script>
+  </div>
+</section>
+<section class="topic-2">
+  <div class="example">
+    <h3>Simple Attributes (Dictionary)</h3>
+    <div class="note">
+      <p>Alternatively, attribute data can also be passed as a dictionary, keyed by the matching ID.</p>
+    </div>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/davelandry/7535638.js"></script>
+  </div>
+</section>
+<section class="topic-2">
+  <div class="example">
+    <h3>Complex Attributes</h3>
+    <div class="note">
+      <p>If you are managing multiple IDs (ex. nesting), it is also possible to pass multiple attribute lists, keyed by the appropriate IDs. This example shows Attribute Arrays, but can also be used with Attribute Dictionaries.</p>
+    </div>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/davelandry/7535777.js"></script>
+  </div>
+</section>
+
+<h2 class="bar">Sample Dataset</h2>
+<section class="topic-2">
+  <div class="example">
+    <h3>Million Song Dataset</h3>
+    <div class="note">
+      <p>For today's workshop, we have prepared a sample dataset for you to use. Please download it now.</p>
+      <a href="/million_songs_json.zip" class="button tertiary">Download .ZIP</a>
+    </div>
+  </div>
+</section>
+  </div>
+</section>
+
+      </div>
+      
+      
+      <script type="text/javascript">
+
+        // Google Analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46067436-1', 'd3plus.org');
+        ga('send', 'pageview');
+      
+      </script>
+
+    </body>
+</html>

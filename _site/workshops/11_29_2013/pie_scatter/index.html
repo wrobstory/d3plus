@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Building a Pie Scatter</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="javascript data visualization tool engine built on  top of D3.js"/>
+
+        <!-- Custom CSS -->
+        <link href="/css/styles.css" media="screen" rel="stylesheet" type="text/css" />
+
+    </head>
+    <body>
+      
+      <a href="https://github.com/alexandersimoes/d3plus"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+      <header>
+        <h1><a href="/">D3plus</a></h1>
+        
+        
+        <a class="active" href="/workshops/" title="">Workshops</a>
+        
+        <a  href="/d3plus.v1.zip" title="">Download</a>
+        
+      </header>
+      
+      
+      <div id="content">
+        <script src="/js/d3.js"></script>
+
+<section class="content">
+  <header>
+    
+    
+    <h2>Workshop 2: November 29th, 2013</h2>
+    
+    
+      <a  href="/workshops/11_29_2013/intro/">Intro</a>
+    
+      <a  href="/workshops/11_29_2013/started/">Getting Started</a>
+    
+      <a  href="/workshops/11_29_2013/svg/">SVG</a>
+    
+      <a  href="/workshops/11_29_2013/d3js/">D3js</a>
+    
+      <a  href="/workshops/11_29_2013/d3plus/">Data and Attributes</a>
+    
+      <a  href="/workshops/11_29_2013/tree_map/">Tree Map</a>
+    
+      <a  href="/workshops/11_29_2013/stacked/">Stacked</a>
+    
+      <a class="active" href="/workshops/11_29_2013/pie_scatter//">Pie Scatter</a>
+    
+      <a  href="/workshops/11_29_2013/network/">Network</a>
+    
+      <a  href="/workshops/11_29_2013/rings/">Rings</a>
+    
+      <a  href="/workshops/11_29_2013/future/">Future Development</a>
+    
+  </header>
+  
+  <div class="post">
+  <h2 class="bar">Scatter Plots of Nested Data</h2>
+<section>
+  <p>
+    Sometimes the best way of comparing two different attributes of your data is to simply plot them on an X, Y plane. Visually, large datasets can suffer from over crowding of nodes thus reducing legibility. One solution, used throughout the other visualizations is to allow nesting of nodes to get a clearer idea of the overall picture. What you sacrifice in accuracy, you gain in legibility.
+  </p>
+  <h3>A Note on Scale</h3>
+  <p>
+    The only specific methods for the pie scatter visualization are <code>.xaxis_scale()</code> and <code>.yaxis_scale()</code>. If these methods are not used, they will default to linear, they can also accept the the value "log".
+  </p>
+</section>
+<section class="topic-2">
+  <div class="example">
+    <iframe style="height: 220px" src="/million_songs/pie_scatter.html"></iframe>
+    <a class="button tertiary standalone" href="/million_songs/pie_scatter.html" target="_blank">View standalone &rarr;</a>
+    <br><br>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/alexandersimoes/7537249.js"></script>
+  </div>
+</section>
+
+<h2 class="bar">Quiz</h2>
+<section class="topic-2">
+  <div class="example"><h3>Here are some other things to try out!</h3></div>
+  <div class="code">
+    <h3>Static Axes</h3>
+    <p>
+      You may be wondering why your charts seem to have so much room on the right hand side that is empty. This is because, by default, the scatter visualization calculates the bounds of your data for all years so that if you were to move between years the axes would stay the same, thus allowing for a static point of reference and comparison. This may not be the desired behavior, try changing the <code>.static_axes()</code> method to <code>false</code> to see how your visualization looks.
+    </p>
+    <h3>Number Formatting</h3>
+    <p>
+      Another public method that D3plus gives the user access to is <code>.number_format()</code>. This function gets called any place is number is printed to the screen in the visualization, in tooltips, on axes, in headers, everywhere! This method is a bit complicated as you have to pass it a function that accepts 2 arguments, the first being the number itself and the second being the key of that value from your data. Try passing a function that will on format the "duration" attribute of your data from seconds (integers) to a timestamp format with minutes and seconds.
+    </p>
+  </div>
+</section>
+
+<h2 class="bar">Extra Credit</h2>
+<section class="topic-2">
+  <div class="example">Feeling adventurous? Let's look into the source to see some of the more advanced functions of D3plus.</div>
+  <div class="code">
+    <h3>Chart Bounds</h3>
+    <p>
+    One of the helpful things D3plus does behind the scenes in the scatter visualization is it sets the bounds of the chart to accomadate the largest node of your data. This way there are never any circles that run over and into the axes. Take a look at the source code and see if there is any way you could think of improving it.
+    <br><br>
+    <a href="https://github.com/alexandersimoes/d3plus/blob/master/src/apps/pie_scatter.js#L49-L68" target="_blank">View the Source</a>
+    </p>
+  </div>
+</section>
+  </div>
+</section>
+
+      </div>
+      
+      
+      <script type="text/javascript">
+
+        // Google Analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46067436-1', 'd3plus.org');
+        ga('send', 'pageview');
+      
+      </script>
+
+    </body>
+</html>
