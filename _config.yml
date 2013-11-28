@@ -37,6 +37,8 @@ workshops:
       url: intro
     - text: Getting Started
       url: started
+    - text: SVG
+      url: svg
     - text: D3js
       url: d3js
     - text: Data and Attributes

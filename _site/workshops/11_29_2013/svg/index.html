@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>D3plus</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="javascript data visualization tool engine built on  top of D3.js"/>
+
+        <!-- Custom CSS -->
+        <link href="/css/styles.css" media="screen" rel="stylesheet" type="text/css" />
+
+    </head>
+    <body>
+      
+      <a href="https://github.com/alexandersimoes/d3plus"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+      <header>
+        <h1><a href="/">D3plus</a></h1>
+        
+        
+        <a class="active" href="/workshops/" title="">Workshops</a>
+        
+        <a  href="/d3plus.v1.zip" title="">Download</a>
+        
+      </header>
+      
+      
+      <div id="content">
+        <script src="/js/d3.js"></script>
+
+<section class="content">
+  <header>
+    
+    
+    <h2>Workshop 2: November 29th, 2013</h2>
+    
+    
+      <a  href="/workshops/11_29_2013/intro/">Intro</a>
+    
+      <a  href="/workshops/11_29_2013/started/">Getting Started</a>
+    
+      <a class="active" href="/workshops/11_29_2013/svg/">SVG</a>
+    
+      <a  href="/workshops/11_29_2013/d3js/">D3js</a>
+    
+      <a  href="/workshops/11_29_2013/d3plus/">Data and Attributes</a>
+    
+      <a  href="/workshops/11_29_2013/tree_map/">Tree Map</a>
+    
+      <a  href="/workshops/11_29_2013/stacked/">Stacked</a>
+    
+      <a  href="/workshops/11_29_2013/pie_scatter//">Pie Scatter</a>
+    
+      <a  href="/workshops/11_29_2013/network/">Network</a>
+    
+      <a  href="/workshops/11_29_2013/rings/">Rings</a>
+    
+      <a  href="/workshops/11_29_2013/future/">Future Development</a>
+    
+  </header>
+  
+  <div class="post">
+  <h2 class="bar">What is SVG? And Why Use it?</h2>
+<section>
+  <p>
+    SVG is a text-based image format, that is, it is based on instructions that tell the computer how to draw the image upon request. This makes SVG resolution independent, since zoom in and zoom out actions involve re-drawing the graphic at the correct size. The resolution independence of SVGs is important for data visualization since it allows maximum flexibility when dealing with data that is not pre-specified.
+  </p>
+  <p>
+    D3plus is a library built to take advantage of the robust featureset of D3, while providing a fairly low barrier of entry to users new to code, design, and/or data visualization. Just as it is impossible to tell the story of Brazil without devoting a few lines to Portugal, it is also the case with D3 and D3plus. The project is built entirely dependent on the <a href="http://d3js.org/" target="_blank">D3</a> library and does not intend to duplicate any of its purpose but instead add atop a layer of ease for the user to access its powerful capabilities.
+  </p>
+</section>
+
+<h2 class="bar">What does it look like?</h2>
+<section class="topic-2">
+  <div class="example">
+    <h3>A Blue Rectangle</h3>
+    <p>
+      SVG uses XML for its syntax and if you are comfortable with HTML you should be able to pick up SVG very easily. For a list of all the available tag names and attributes you can <a href="http://www.w3.org/TR/SVG/" title="SVG spec">view the spec</a>.
+    </p>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/alexandersimoes/df0d519c5052c5e89492.js"></script>
+    <div id="rect_ex1">
+      <?xml version="1.0"?>
+      <svg width="120" height="120" 
+           viewPort="0 0 120 120" version="1.1"
+           xmlns="http://www.w3.org/2000/svg">
+           <rect x="10" y="10" width="100" height="100" fill="#0000ff" />
+      </svg>
+    </div>
+  </div>
+</section>
+
+<h2 class="bar">Using Javascript With SVG</h2>
+<section class="topic-2">
+  <div class="example">
+    <h3>A Red Rectangle</h3>
+    <p>
+      Just as using javascript to update HTML elements is a bit of a pain, so is updating SVG. Now we see use case for D3.
+    </p>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/alexandersimoes/cf7b39a1dca18c510d16.js"></script>
+    <div id="rect_ex2">
+      <?xml version="1.0"?>
+      <svg width="120" height="120" 
+           viewPort="0 0 120 120" version="1.1"
+           xmlns="http://www.w3.org/2000/svg">
+           <rect x="10" y="10" width="100" height="100" fill="#0000ff" />
+      </svg>
+    </div>
+    <script>
+      var rect = document.getElementById("rect_ex2")
+                  .getElementsByTagName("rect")[0];
+      rect.style.setProperty("fill", "red", "");
+    </script>
+  </div>
+</section>
+
+<!-- <h2 class="bar">Using D3 with SVG</h2>
+<section class="topic-2">
+  <div class="example">
+    <h3>Create and Add to the Page</h3>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/alexandersimoes/cd21519a203595fc49d7.js"></script>
+    <div id="rect_ex1"></div>
+    <script>
+    var svg = d3.select("#rect_ex1").append("svg")
+                .attr("width", 120)
+                .attr("height", 120)
+
+    svg.append("rect")
+      .attr("x", 10)
+      .attr("y", 10)
+      .attr("width", 100)
+      .attr("height", 100)
+      .attr("fill", "#0000ff")
+    </script>
+  </div>
+</section>
+
+<section class="topic-2">
+  <div class="example">
+    <h3>Update via D3</h3>
+    <div class="note">
+      <p>Here we are changing the color (fill) from blue to green. This works the same way as with HTML elements</p>
+    </div>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/alexandersimoes/cf7b39a1dca18c510d16.js"></script>
+    <div id="rect_ex2"></div>
+    <script>
+    var svg = d3.select("#rect_ex2").append("svg")
+                .attr("width", 120)
+                .attr("height", 120)
+
+    var rect = svg.append("rect")
+      .attr("x", 10)
+      .attr("y", 10)
+      .attr("width", 100)
+      .attr("height", 100)
+      .attr("fill", "#0000ff")
+    
+    rect.attr("fill", "#00ff00")
+    </script>
+  </div>
+</section>
+
+<h2 class="bar">Putting It All Together</h2>
+<section class="topic-2">
+  <div class="example">
+    <h3>Enter, Update, Exit With SVG</h3>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/alexandersimoes/cf7b39a1dca18c510d16.js"></script>
+    <div id="rect_ex3"></div>
+    <script>
+    var svg = d3.select("#rect_ex3").append("svg")
+                .attr("width", 120)
+                .attr("height", 120)
+
+    var rect = svg.append("rect")
+      .attr("x", 10)
+      .attr("y", 10)
+      .attr("width", 100)
+      .attr("height", 100)
+      .attr("fill", "#0000ff")
+    
+    rect.attr("fill", "#00ff00")
+    
+    var data = [
+      {"value":100, "color":"DarkGoldenRod"},
+      {"value":70, "color":"DeepSkyBlue"},
+      {"value":40, "color":"MediumAquaMarine"},
+      {"value":15, "color":"OrangeRed"},
+      {"value":5, "color":"Orchid"},
+      {"value":1, "color":"PaleGreen"}
+    ]
+    
+    rect = svg.selectAll("rect").data(data)
+    
+    var enter = rect.enter().append("rect");
+    
+    enter
+      .attr("x", function(d){ return d.value })
+      .attr("y", 10)
+      .attr("width", function(d){ return d.value })
+      .attr("height", function(d){ return d.value })
+      .attr("fill", function(d){ return d.color })
+    
+    </script>
+  </div> -->
+</section>
+
+  </div>
+</section>
+
+      </div>
+      
+      
+      <script type="text/javascript">
+
+        // Google Analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46067436-1', 'd3plus.org');
+        ga('send', 'pageview');
+      
+      </script>
+
+    </body>
+</html>
