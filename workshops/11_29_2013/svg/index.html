@@ -17,12 +17,6 @@ title: D3plus
 <section class="topic-2">
   <div class="example">
     <h3>A Blue Rectangle</h3>
-    <p>
-      SVG uses XML for its syntax and if you are comfortable with HTML you should be able to pick up SVG very easily. For a list of all the available tag names and attributes you can <a href="http://www.w3.org/TR/SVG/" title="SVG spec">view the spec</a>.
-    </p>
-  </div>
-  <div class="code">
-    <script src="https://gist.github.com/alexandersimoes/df0d519c5052c5e89492.js"></script>
     <div id="rect_ex1">
       <?xml version="1.0"?>
       <svg width="120" height="120" 
@@ -31,6 +25,12 @@ title: D3plus
            <rect x="10" y="10" width="100" height="100" fill="#0000ff" />
       </svg>
     </div>
+    <p>
+      SVG uses XML for its syntax and if you are comfortable with HTML you should be able to pick up SVG very easily. For a list of all the available tag names and attributes you can <a href="http://www.w3.org/TR/SVG/" title="SVG spec">view the spec</a>.
+    </p>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/alexandersimoes/df0d519c5052c5e89492.js"></script>
   </div>
 </section>
 
@@ -38,12 +38,6 @@ title: D3plus
 <section class="topic-2">
   <div class="example">
     <h3>A Red Rectangle</h3>
-    <p>
-      Just as using javascript to update HTML elements is a bit of a pain, so is updating SVG. Now we see use case for D3.
-    </p>
-  </div>
-  <div class="code">
-    <script src="https://gist.github.com/alexandersimoes/cf7b39a1dca18c510d16.js"></script>
     <div id="rect_ex2">
       <?xml version="1.0"?>
       <svg width="120" height="120" 
@@ -57,6 +51,12 @@ title: D3plus
                   .getElementsByTagName("rect")[0];
       rect.style.setProperty("fill", "red", "");
     </script>
+    <p>
+      Just as using javascript to update HTML elements is a bit of a pain, so is updating SVG. Now we see use case for D3.
+    </p>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/alexandersimoes/cf7b39a1dca18c510d16.js"></script>
   </div>
 </section>
 
