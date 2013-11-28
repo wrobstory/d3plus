@@ -9,7 +9,7 @@ title: D3plus
     "D3.js is a JavaScript library for manipulating documents based on data. D3 helps you bring data to life using HTML, SVG and CSS. D3’s emphasis on web standards gives you the full capabilities of modern browsers without tying yourself to a proprietary framework, combining powerful visualization components and a data-driven approach to DOM manipulation." - <a href="http://d3js.org/" target="_blank">D3js.org</a>
   </p>
   <p>
-    D3plus is a library built to take advantage of the robust featureset of D3, while providing a fairly low barrier of entry to users new to code, design, and/or data visualization.
+    D3plus is a library built to take advantage of the robust featureset of D3, while providing a fairly low barrier of entry to users new to code, design, and/or data visualization. Just as it is impossible to tell the story of Brazil without devoting a few lines to Portugal, it is also the case with D3 and D3plus. The project is built entirely dependent on the <a href="http://d3js.org/" target="_blank">D3</a> library and does not intend to duplicate any of its purpose but instead add atop a layer of ease for the user to access its powerful capabilities.
   </p>
 </section>
 
@@ -55,6 +55,30 @@ title: D3plus
     <h3>Dynamically Adding Elements New Elements With Data</h3>
     <div class="note">
       <p>Now you may be wondering what happens to the other 2 elements in the data array, since their is only 1 <code>&lt;div&gt;</code> but 3 numbers in our array. Well, D3 is </p>
+    </div>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/davelandry/7536038.js"></script>
+  </div>
+</section>
+
+<section class="topic-2">
+  <div class="example">
+    <h3>Updating Our Elements With New Data</h3>
+    <div class="note">
+      <p>What if we were to update our data? How can we tell our elements on the page about this update and view this change? Enter. Update. Exit. Of course! In this example we change our data to remove one element and update the values of our other elements.</p>
+    </div>
+  </div>
+  <div class="code">
+    <script src="https://gist.github.com/davelandry/7536038.js"></script>
+  </div>
+</section>
+
+<section class="topic-2">
+  <div class="example">
+    <h3>Getting Ride of Stale Elements</h3>
+    <div class="note">
+      <p>Now that we've both added and updated our elements on the page, it is time to (sadly) see some go. In this example we have removed one element from our array and as such the corresponding element on the page should also disappear. The example here illustrates this practice via the <a href="https://github.com/mbostock/d3/wiki/Selections#wiki-enter" target="_blank"><code>.exit()</code></a> method.</p>
     </div>
   </div>
   <div class="code">
