@@ -35,14 +35,14 @@ workshops:
     links:
     - text: Intro
       url: intro
-    - text: Getting Started
-      url: started
     - text: SVG
       url: svg
     - text: D3js
       url: d3js
     - text: Data and Attributes
       url: d3plus
+    - text: Getting Started
+      url: started
     - text: Tree Map
       url: tree_map
     - text: Stacked
