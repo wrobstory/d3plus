@@ -1,11 +1,13 @@
 name: D3plus
 navigation:
+- text: Documentation
+  url: https://github.com/alexandersimoes/d3plus/wiki
 - text: Workshops
   url: /workshops/
-# - text: Examples
-#   url: /examples/
 - text: Download
-  url: /d3plus.v1.zip
+  url: /d3plus.v1.0.0.zip
+- text: Source
+  url: https://github.com/alexandersimoes/d3plus
 
 workshops:
   nav_11_19_2013:

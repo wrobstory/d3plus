@@ -1,0 +1,12 @@
+[
+  {
+    "group": "A",
+    "title": "Group A",
+    "color": "#cc0000"
+  },
+  {
+    "group": "B",
+    "title": "Group B",
+    "color": "#00cc00"
+  }
+]

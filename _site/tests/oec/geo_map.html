@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="../../d3plus.css" rel="stylesheet" type="text/css">
+  <style>
+
+  body {
+    margin: 0px;
+  }
+  
+  div#viz {
+    width: 100%;
+    height: 100%;
+  }
+
+  </style>
+
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+  
+</head>
+<body>
+
+<div id="viz">Test</div>
+
+<script src="../../lib/d3.js"></script>
+<!-- <script src="../../lib/d3.geo.tile.js"></script> -->
+<script src="../../lib/topojson.js"></script>
+<script src="../../lib/modernizr.custom.js"></script>
+
+<script src="../../src/general.js"></script>
+<script src="../../src/public.js"></script>
+<script src="../../src/viz.js"></script>
+
+<script src="../../src/apps/geo_map.js"></script>
+
+<script src="../../src/data/color.js"></script>
+<script src="../../src/data/filter.js"></script>
+<script src="../../src/data/format.js"></script>
+<script src="../../src/data/nest.js"></script>
+
+<script src="../../src/shapes/area.js"></script>
+<script src="../../src/shapes/color.js"></script>
+<script src="../../src/shapes/coordinates.js"></script>
+<script src="../../src/shapes/donut.js"></script>
+<script src="../../src/shapes/draw.js"></script>
+<script src="../../src/shapes/fill.js"></script>
+<script src="../../src/shapes/labels.js"></script>
+<script src="../../src/shapes/line.js"></script>
+<script src="../../src/shapes/links.js"></script>
+<script src="../../src/shapes/rect.js"></script>
+<script src="../../src/shapes/style.js"></script>
+
+<script src="../../src/styles/default.js"></script>
+
+<script src="../../src/tooltip/app.js"></script>
+<script src="../../src/tooltip/arrow.js"></script>
+<script src="../../src/tooltip/create.js"></script>
+<script src="../../src/tooltip/data.js"></script>
+<script src="../../src/tooltip/move.js"></script>
+<script src="../../src/tooltip/remove.js"></script>
+
+<script src="../../src/utils/color.js"></script>
+<script src="../../src/utils/error.js"></script>
+<script src="../../src/utils/titles.js"></script>
+<script src="../../src/utils/utils.js"></script>
+<script src="../../src/utils/variables.js"></script>
+<script src="../../src/utils/wordwrap.js"></script>
+
+<script src="../../src/zoom/bounds.js"></script>
+<script src="../../src/zoom/reset.js"></script>
+
+<script>
+
+  d3.json("data/country_coords.json", function(coords) {
+    d3.json("data/oil_export_hs.json", function(data) {
+      
+      viz = d3plus.viz()
+        // .dev(true)
+        .type("geo_map")
+        .container("#viz")
+        .id("id")
+        .data(data)
+        .coords(coords)
+        .color("export_val")
+        // .shape("coordinates")
+      
+      d3.select("#viz")
+        .call(viz);
+        
+    });
+  });
+  
+
+</script>
+</body>
+</html>

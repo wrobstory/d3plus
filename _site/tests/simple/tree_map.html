@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link href="../../d3plus.css" rel="stylesheet" type="text/css">
+<style>
+
+body {
+  margin: 0px; padding:0;
+}
+
+
+</style>
+<body style="overflow:hidden">
+
+<div id="viz"></div>
+
+<script src="../../lib/d3.js"></script>
+<script src="../../lib/modernizr.custom.js"></script>
+<!-- <script src="../../d3plus.js"></script> -->
+
+<script src="../../src/general.js"></script>
+<script src="../../src/public.js"></script>
+<script src="../../src/viz.js"></script>
+
+<script src="../../src/apps/bubbles.js"></script>
+<script src="../../src/apps/chart.js"></script>
+<script src="../../src/apps/network.js"></script>
+<script src="../../src/apps/tree_map.js"></script>
+
+<script src="../../src/data/color.js"></script>
+<script src="../../src/data/filter.js"></script>
+<script src="../../src/data/format.js"></script>
+<script src="../../src/data/nest.js"></script>
+
+<script src="../../src/shapes/area.js"></script>
+<script src="../../src/shapes/color.js"></script>
+<script src="../../src/shapes/donut.js"></script>
+<script src="../../src/shapes/draw.js"></script>
+<script src="../../src/shapes/fill.js"></script>
+<script src="../../src/shapes/labels.js"></script>
+<script src="../../src/shapes/line.js"></script>
+<script src="../../src/shapes/links.js"></script>
+<script src="../../src/shapes/rect.js"></script>
+<script src="../../src/shapes/style.js"></script>
+
+<script src="../../src/styles/default.js"></script>
+
+<script src="../../src/tooltip/app.js"></script>
+<script src="../../src/tooltip/arrow.js"></script>
+<script src="../../src/tooltip/create.js"></script>
+<script src="../../src/tooltip/data.js"></script>
+<script src="../../src/tooltip/move.js"></script>
+<script src="../../src/tooltip/remove.js"></script>
+
+<script src="../../src/utils/color.js"></script>
+<script src="../../src/utils/error.js"></script>
+<script src="../../src/utils/titles.js"></script>
+<script src="../../src/utils/utils.js"></script>
+<script src="../../src/utils/variables.js"></script>
+<script src="../../src/utils/wordwrap.js"></script>
+
+<script>
+
+  var viz = d3plus.viz()
+
+  d3.json("data/data.json", function(data){
+    d3.json("data/group.json", function(group){
+      d3.json("data/id.json", function(id){
+      
+        // Keyed Attribute Arrays
+        var attrs = {
+          "group": group,
+          "id": id
+        }
+        
+        // Keyed Attribute Objects
+        var attrs = {
+          "group": {},
+          "id": {}
+        }
+        group.forEach(function(a){
+          attrs["group"][a.group] = a
+        })
+        id.forEach(function(a){
+          attrs["id"][a.id] = a
+        })
+        
+        var attrs = []
+        id.forEach(function(a){
+          
+          var d = data.filter(function(x){
+            return x.id == a.id
+          })[0]
+          var g = group.filter(function(x){
+            return x.group == d.group
+          })[0]
+          
+          for (key in g){
+            a[key] = g[key]
+          }
+          attrs.push(a)
+        })
+        
+        function valuesum(leaves) {
+          console.log(leaves)
+          return d3.sum(leaves, function(d){ return d.value/2; })
+        }
+        
+        function idsolo(d) {
+          // console.log(d)
+          return d >= 4
+        }
+        
+        viz
+            // .dev(true)
+            // .aggs({"value": valuesum})
+            .attrs(attrs)
+            .type("tree_map")
+            .data(data)
+            .id(["group","id"])
+            .container("#viz")
+            // .id({"solo": [2,3,4,5]})
+            // .id({"mute": 1})
+            // .id({"solo": [idsolo,1]})
+            .size("value")
+            .color("color")
+            .depth(1)
+            .text({"group": "title", "id": "name"})
+            .shape("square")
+            .title("Here is my title.")
+            
+        viz.draw()
+  
+      })
+    })
+  })
+
+</script>

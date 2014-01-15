@@ -4,45 +4,90 @@ title: D3plus
 ---
 
 <style>
-section#logo {
-  text-align: center;
-}
-section#links {
-  margin: auto;
-  text-align: center;
-  width: 800px;
-}
-section#links a {
-  display: inline-block;
-  margin: 20px;
-  width: 75px;
-}
-section#links a img {
-  width: 75px;
-}
+
+  section#logo {
+    display: block;
+    margin: 50px auto;
+    padding: 0px;
+    text-align: center;
+    width: 800px;
+  }
+
+  section#logo img {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  section#logo div {
+    color: #888;
+    display: inline-block;
+    font-size: 50px;
+    font-family: "HelveticaNeue-UltraLight", "Helvetica Neue Ultra Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: lighter;
+    line-height: 50px;
+    padding: 50px 25px;
+    text-align: left;
+    width: 350px;
+  }
+  
+  section#links {
+    margin: 50px auto;
+    text-align: center;
+    width: 800px;
+  }
+  
+  section#links a {
+    display: inline-block;
+    font-size: 12px;
+    margin: 0px;
+    width: 100px;
+  }
+  
+  section#links a i {
+    display: block;
+    font-size: 50px;
+  }
+  
+  section#links a span {
+    display: inline-block;
+  }
+  
 </style>
 
 
 <section id="logo">
   <img src="{{ site.url }}/assets/img/d3plus-icon.png">
+  <div>Data visualization made easy.</div>
 </section>
 
 <section id="links">
-  <a href="https://github.com/alexandersimoes/d3plus/stargazers">
-    <img src="{{ site.url }}/assets/img/star-icon.png">
-    <span id="stars"></span>
-  </a>
-  <a href="https://github.com/alexandersimoes/d3plus/network/members">
-    <img src="{{ site.url }}/assets/img/fork-icon.png">
-    <span id="forks"></span>
-  </a>
   <a href="https://github.com/alexandersimoes/d3plus/">
-    <img src="{{ site.url }}/assets/img/github-icon.png">
+    <i class="fa fa-github"></i>
     View Source
   </a>
+  <a href="https://github.com/alexandersimoes/d3plus/wiki">
+    <i class="fa fa-book"></i>
+    Documentation
+  </a>
+  <a href="https://github.com/alexandersimoes/d3plus/issues?state=open">
+    <i class="fa fa-exclamation-circle"></i>
+    Issues<span id="issues"></span>
+  </a>
   <a href="https://groups.google.com/forum/#!forum/d3plus">
-    <img src="{{ site.url }}/assets/img/googlegroups-icon.png">
-    Get Help
+    <i class="fa fa-comments-o"></i>
+    Google Group
+  </a>
+  <a href="https://github.com/alexandersimoes/d3plus/stargazers">
+    <i class="fa fa-eye"></i>
+    Watchers<span id="watchers"></span>
+  </a>
+  <a href="https://github.com/alexandersimoes/d3plus/network/members">
+    <i class="fa fa-code-fork"></i>
+    Forks<span id="forks"></span>
+  </a>
+  <a href="https://github.com/alexandersimoes/d3plus/stargazers">
+    <i class="fa fa-star"></i>
+    Stargazers<span id="stars"></span>
   </a>
 </section>
 
@@ -54,8 +99,15 @@ section#links a img {
   // get stars
   $(function(){
     $.getJSON('https://api.github.com/repos/alexandersimoes/d3plus?callback=?', function(d){
-      $('#stars').text(d && d.data ? d.data.stargazers_count : '');
-      $('#forks').text(d && d.data ? d.data.forks_count : '');
+      
+      if (d && d.data && d.data.message.indexOf("API rate limit exceeded") < 0) {
+
+        $('#issues').text(": "+d.data.open_issues_count);
+        $('#watchers').text(": "+d.data.subscribers_count);
+        $('#stars').text(": "+d.data.stargazers_count);
+        $('#forks').text(": "+d.data.forks_count);
+        
+      }
     });
   });
   

@@ -1,0 +1,163 @@
+{
+  "artist_id": [
+    {
+        "artist_id": "mg",
+        "names": "Michael Jackson"
+    },
+    {
+        "artist_id": "cp",
+        "names": "Coldplay"
+    }
+  ],
+  "album_id": [
+    {
+        "name": "Album #1",
+        "album_id": 1,
+        "color": "#ff0000"
+    },
+    {
+        "name": "Album #2",
+        "album_id": 2,
+        "color": "#00ff00"
+    },
+    {
+        "name": "Album #3",
+        "album_id": 3,
+        "color": "#0000ff"
+    },
+    {
+        "name": "Album #4",
+        "album_id": 4,
+        "color": "#ffff00"
+    },
+    {
+        "name": "Album #5",
+        "album_id": 5,
+        "color": "#00ffff"
+    },
+    {
+        "name": "Album #6",
+        "album_id": 6,
+        "color": "#888888"
+    }
+  ],
+  "song_id": [
+    {
+        "song_id": "1",
+        "song_title": "Song #1",
+        "artist_id": "mg",
+        "album_id": 1,
+        "grammy": true,
+        "duration": 177.47546,
+        "hotttnesss": 0.2,
+        "loudness": -9.689,
+        "year": 1987
+    },
+    {
+        "song_id": "2",
+        "song_title": "Song #2",
+        "artist_id": "mg",
+        "album_id": 1,
+        "close": 0.5,
+        "grammy": false,
+        "duration": 127.47546,
+        "hotttnesss": 0.7,
+        "loudness": 1.689,
+        "year": 1987
+    },
+    {
+        "song_id": "3",
+        "song_title": "Song #3",
+        "artist_id": "mg",
+        "album_id": 2,
+        "grammy": true,
+        "duration": 57.47546,
+        "hotttnesss": 0.25,
+        "loudness": 0.689,
+        "year": 1988
+    },
+    {
+        "song_id": "4",
+        "song_title": "Song #4",
+        "artist_id": "mg",
+        "album_id": 2,
+        "grammy": true,
+        "duration": 27.47546,
+        "hotttnesss": 0.55,
+        "loudness": 2.689,
+        "year": 1988
+    },
+    {
+        "song_id": "5",
+        "song_title": "Song #5",
+        "artist_id": "mg",
+        "album_id": 3,
+        "grammy": false,
+        "close": 0.5,
+        "duration": 87.47546,
+        "hotttnesss": 0.9,
+        "loudness": -5.689,
+        "year": 1990
+    },
+    {
+        "song_id": "6",
+        "song_title": "Song #6",
+        "artist_id": "mg",
+        "album_id": 4,
+        "close": 1,
+        "grammy": false,
+        "duration": 157.47546,
+        "hotttnesss": 0.1,
+        "loudness": 3.689,
+        "year": 1992
+    },
+    {
+        "song_id": "7",
+        "song_title": "Song #7",
+        "artist_id": "mg",
+        "album_id": 4,
+        "close": 1,
+        "grammy": true,
+        "duration": 117.47546,
+        "hotttnesss": 0.4,
+        "loudness": -6.689,
+        "year": 1992
+    },
+    {
+        "song_id": "8",
+        "song_title": "Song #8",
+        "artist_id": "mg",
+        "album_id": 4,
+        "close": 0,
+        "grammy": true,
+        "duration": 77.47546,
+        "hotttnesss": 0.6,
+        "loudness": 0,
+        "year": 1992
+    },
+    {
+        "song_id": "9",
+        "song_title": "Song #9",
+        "artist_id": "cp",
+        "album_id": 5,
+        "close": 1,
+        "grammy": true,
+        "duration": 117.47546,
+        "hotttnesss": 0.3,
+        "loudness": -6.689,
+        "year": 1988
+    },
+    {
+        "song_id": "10",
+        "song_title": "Song #10",
+        "artist_id": "cp",
+        "album_id": 6,
+        "close": 0,
+        "grammy": true,
+        "duration": 77.47546,
+        "hotttnesss": 0.6,
+        "loudness": 0,
+        "year": 1989
+    }
+  ]
+}

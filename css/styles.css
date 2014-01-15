@@ -2,6 +2,9 @@
   GENERAL STUFF
   -------------
 */
+html, body {
+  height: 100%;
+}
 body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -33,7 +36,6 @@ header {
   font-size: 14px;
   border-bottom: 1px solid #f0f0f0;
   color: #e0e0e0;
-  margin-bottom: 43px;
   display: block;
 }
 header h1 {
@@ -50,15 +52,16 @@ header h1 a {
 header h1 a:hover {
   color: #808080;  
 }
-header h2 {
+header h2, section h2 {
   color: #b35c1e; /* rust */
+  padding: 0.5em 0.75em 0.67em;
 }
 header a {
-  color: #909090;
-  padding: 0 0.5em;
+  color: #aaa;
+  padding: 0.5em 0.5em;
 }
 header a.active {
-  color: #000;
+  color: #b35c1e;
   text-decoration: none;
 }
 
@@ -76,7 +79,7 @@ header a.active {
   line-height: 155%;
 }
 #content h2.bar {
-  background: #bbb;
+  background: #b35c1e;
   color: white;
   padding: 0.5em 0.75em 0.67em;
 }

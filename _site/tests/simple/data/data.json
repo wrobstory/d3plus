@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "group": "A",
+    "value": 24,
+    "active": false
+  },
+  {
+    "id": 2,
+    "group": "B",
+    "value": 12,
+    "active": false
+  },
+  {
+    "id": 3,
+    "group": "A",
+    "value": 36,
+    "active": true
+  },
+  {
+    "id": 4,
+    "group": "B",
+    "value": 21,
+    "active": true
+  },
+  {
+    "id": 5,
+    "group": "B",
+    "value": 8,
+    "active": true
+  }
+]
