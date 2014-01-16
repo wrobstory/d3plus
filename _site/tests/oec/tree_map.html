@@ -7,11 +7,7 @@
 
   body {
     margin: 0px;
-  }
-  
-  div#viz {
-    width: 100%;
-    height: 100%;
+    padding:0;
   }
 
   </style>
@@ -19,17 +15,15 @@
 </head>
 <body>
 
-<div id="viz">Test</div>
+<div id="viz"></div>
 
 <script src="../../lib/d3.js"></script>
-<script src="../../lib/topojson.js"></script>
-<script src="../../lib/modernizr.custom.js"></script>
 
 <script src="../../src/general.js"></script>
 <script src="../../src/public.js"></script>
 <script src="../../src/viz.js"></script>
 
-<script src="../../src/apps/geo_map.js"></script>
+<script src="../../src/apps/tree_map.js"></script>
 
 <script src="../../src/data/color.js"></script>
 <script src="../../src/data/filter.js"></script>
@@ -71,30 +65,46 @@
 
   var viz = d3plus.viz()
 
-  d3.json("data/country_coords.json", function(coords) {
-    d3.json("data/country_attrs.json", function(attrs) {
-      d3.json("data/country_export_horses.json", function(data) {
-        
-        data.data.forEach(function(d){
-          d.id = d.origin_id
-        })
+  d3.json("data/hs_attrs.json", function(attrs) {
+    d3.json("data/hs_exports_msr.json", function(data) {
       
-        viz
-          // .dev(true)
-          .type("geo_map")
-          .container("#viz")
-          .id("id")
-          .attrs(attrs.data)
-          .data(data.data)
-          .coords(coords)
-          .color("export_val")
-          .text("name")
-          .tooltip(["export_val"])
-          .time("year")
-          .time({"solo": [2009,2010]})
-          .draw()
+      var two = attrs.data.filter(function(a){
+        return a.id.length == 2
+      })
+      
+      var six = attrs.data.filter(function(a){
+        return a.id.length == 6
+      })
+      
+      two.forEach(function(a){
+        a.two = a.id
+        delete a.id
+      })
+      
+      data.data.forEach(function(d){
+        d.id = d.hs_id
+        delete d.hs_id
+        d.two = d.id.substr(0,2)
+      })
+      
+      viz
+        // .dev(true)
+        .data(data.data)
+        .container("#viz")
+        .attrs({"two": two, "id": six})
+        .type("tree_map")
+        .id(["two","id"])
+        .color("color")
+        .text("name")
+        .size("export_val")
+        .time("year")
+        .time({"solo": [2009,2010]})
+        .depth(0)
+        .title("Tree Map")
+        .title({"total": true})
+        .style({"labels": {"align": "start"}})
+        .draw()
         
-      });
     });
   });
   
