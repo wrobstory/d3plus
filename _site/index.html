@@ -132,9 +132,9 @@
   
   // get stars
   $(function(){
-    $.getJSON('https://api.github.com/repos/alexandersimoes/d3plus?callback=?', function(d){
-      
-      if (d && d.data && d.data.message.indexOf("API rate limit exceeded") < 0) {
+    $.getJSON('https://api.github.com/repos/alexandersimoes/d3plus?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067&callback=?', function(d){
+
+      if (d && d.data && !d.data.message) {
 
         $('#issues').text(": "+d.data.open_issues_count);
         $('#watchers').text(": "+d.data.subscribers_count);
@@ -142,6 +142,7 @@
         $('#forks').text(": "+d.data.forks_count);
         
       }
+      
     });
   });
   

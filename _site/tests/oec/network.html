@@ -22,14 +22,13 @@
 <div id="viz">Test</div>
 
 <script src="../../lib/d3.js"></script>
-<script src="../../lib/topojson.js"></script>
 <script src="../../lib/modernizr.custom.js"></script>
 
 <script src="../../src/general.js"></script>
 <script src="../../src/public.js"></script>
 <script src="../../src/viz.js"></script>
 
-<script src="../../src/apps/geo_map.js"></script>
+<script src="../../src/apps/network.js"></script>
 
 <script src="../../src/data/color.js"></script>
 <script src="../../src/data/filter.js"></script>
@@ -71,27 +70,59 @@
 
   var viz = d3plus.viz()
 
-  d3.json("data/country_coords.json", function(coords) {
-    d3.json("data/country_attrs.json", function(attrs) {
-      d3.json("data/country_export_horses.json", function(data) {
+  d3.json("data/hs_attrs.json", function(attrs) {
+    d3.json("data/hs_exports_msr.json", function(data) {
+      d3.json("data/hs_network.json", function(network) {
         
-        data.data.forEach(function(d){
-          d.id = d.origin_id
+        var two = attrs.data.filter(function(a){
+          return a.id.length == 2
         })
+      
+        var six = attrs.data.filter(function(a){
+          return a.id.length == 6
+        })
+      
+        two.forEach(function(a){
+          a.two = a.id
+          delete a.id
+        })
+      
+        data.data.forEach(function(d){
+          d.id = d.hs_id
+          delete d.hs_id
+          d.two = d.id.substr(0,2)
+        })
+        
+
+        network.edges.forEach(function(link){
+          link.source = network.nodes[link.source]
+          link.target = network.nodes[link.target]
+        })
+        
+        function rca(d) {
+          return d.export_val > 0
+        }
       
         viz
           // .dev(true)
-          .type("geo_map")
-          .container("#viz")
-          .id("id")
-          .attrs(attrs.data)
           .data(data.data)
-          .coords(coords)
-          .color("export_val")
+          .aggs({"export_rca": "mean"})
+          .container("#viz")
+          .attrs({"two": two, "id": six})
+          .type("network")
+          .id(["two","id"])
+          .color("color")
+          .nodes(network.nodes)
+          .links(network.edges)
           .text("name")
+          .size("export_val")
           .tooltip(["export_val"])
           .time("year")
           .time({"solo": 2010})
+          .title({"total": true})
+          .depth(1)
+          .active(rca)
+          .active({"spotlight": true})
           .draw()
         
       });
