@@ -7,7 +7,11 @@
 
   body {
     margin: 0px;
-    padding:0;
+  }
+  
+  div#viz {
+    width: 100%;
+    height: 100%;
   }
 
   </style>
@@ -15,7 +19,7 @@
 </head>
 <body>
 
-<div id="viz"></div>
+<div id="viz">Test</div>
 
 <script src="../../lib/d3.js"></script>
 
@@ -23,8 +27,7 @@
 <script src="../../src/public.js"></script>
 <script src="../../src/viz.js"></script>
 
-<script src="../../src/apps/stacked.js"></script>
-<script src="../../src/apps/chart.js"></script>
+<script src="../../src/apps/rings.js"></script>
 
 <script src="../../src/data/analyze.js"></script>
 <script src="../../src/data/color.js"></script>
@@ -54,7 +57,7 @@
 <script src="../../src/tooltip/move.js"></script>
 <script src="../../src/tooltip/remove.js"></script>
 
-<script src="../../src/ui/legend.js"></script>
+<script src="../../src/ui/key.js"></script>
 <script src="../../src/ui/error.js"></script>
 <script src="../../src/ui/timeline.js"></script>
 <script src="../../src/ui/titles.js"></script>
@@ -73,54 +76,62 @@
 
   d3.json("data/hs_attrs.json", function(attrs) {
     d3.json("data/hs_exports_msr.json", function(data) {
-      
-      var two = attrs.data.filter(function(a){
-        return a.id.length == 2
-      })
-      
-      var six = attrs.data.filter(function(a){
-        return a.id.length == 6
-      })
-      
-      two.forEach(function(a){
-        a.two = a.id
-        delete a.id
-      })
-      
-      data.data.forEach(function(d){
-        d.id = d.hs_id
-        delete d.hs_id
-        d.two = d.id.substr(0,2)
-      })
-      
-      var filtered_data = data.data.filter(function(d){
-        return d3.range(2005,2011).indexOf(d.year) >= 0
-      })
-      
-      viz
-        // .dev(true)
-        .data(filtered_data)
-        .container("#viz")
-        .attrs({"two": two, "id": six})
-        .type("stacked")
-        .id(["two","id"])
-        // .id({"solo": "16"})
-        .color("color")
-        .text("name")
-        .y("export_val")
-        .x("year")
-        .time("year")
-        .order("two")
-        .time({"solo": d3.range(2005,2011)})
-        .depth(0)
-        // .title("Tree Map")
-        // .style({"labels": {"align": "start"}})
-        .draw()
+      d3.json("data/hs_network.json", function(network) {
         
-      setTimeout(function(){
-        viz.data(data.data).draw()
-      },2000)
+        var two = attrs.data.filter(function(a){
+          return a.id.length == 2
+        })
+      
+        var six = attrs.data.filter(function(a){
+          return a.id.length == 6
+        })
+      
+        two.forEach(function(a){
+          a.two = a.id
+          delete a.id
+        })
+      
+        data.data.forEach(function(d){
+          d.id = d.hs_id
+          delete d.hs_id
+          d.two = d.id.substr(0,2)
+        })
         
+
+        network.edges.forEach(function(link){
+          link.source = network.nodes[link.source]
+          link.target = network.nodes[link.target]
+        })
+        
+        function rca(d) {
+          return d.export_val > 0
+        }
+      
+        viz
+          // .dev(true)
+          .data(data.data)
+          .aggs({"export_rca": "mean"})
+          .container("#viz")
+          .attrs({"two": two, "id": six})
+          .type("rings")
+          .focus("178703") // Cars
+          // .focus("052711") // Petroleum Gas
+          .id(["two","id"])
+          .depth(1)
+          .color("color")
+          .nodes(network.nodes)
+          .links(network.edges)
+          .text("name")
+          .size("export_val")
+          .tooltip(["export_val"])
+          .time("year")
+          .time({"solo": 2010})
+          // .title({"total": true})
+          .active(rca)
+          .active({"spotlight": true})
+          .draw()
+        
+      });
     });
   });
   

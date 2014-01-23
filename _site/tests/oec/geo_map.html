@@ -31,7 +31,9 @@
 
 <script src="../../src/apps/geo_map.js"></script>
 
+<script src="../../src/data/analyze.js"></script>
 <script src="../../src/data/color.js"></script>
+<script src="../../src/data/fetch.js"></script>
 <script src="../../src/data/filter.js"></script>
 <script src="../../src/data/format.js"></script>
 <script src="../../src/data/nest.js"></script>
@@ -57,9 +59,11 @@
 <script src="../../src/tooltip/move.js"></script>
 <script src="../../src/tooltip/remove.js"></script>
 
+<script src="../../src/ui/error.js"></script>
+<script src="../../src/ui/key.js"></script>
+<script src="../../src/ui/titles.js"></script>
+
 <script src="../../src/utils/color.js"></script>
-<script src="../../src/utils/error.js"></script>
-<script src="../../src/utils/titles.js"></script>
 <script src="../../src/utils/utils.js"></script>
 <script src="../../src/utils/variables.js"></script>
 <script src="../../src/utils/wordwrap.js"></script>
@@ -91,7 +95,7 @@
           .text("name")
           .tooltip(["export_val"])
           .time("year")
-          .time({"solo": 2010})
+          .time({"solo": [2007,2008,2009,2010]})
           .draw()
         
       });

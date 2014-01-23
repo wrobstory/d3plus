@@ -5,7 +5,7 @@ navigation:
 - text: Workshops
   url: /workshops/
 - text: Download
-  url: /d3plus.v1.0.1.zip
+  url: /d3plus.v1.1.0.zip
 - text: Source
   url: https://github.com/alexandersimoes/d3plus
 
