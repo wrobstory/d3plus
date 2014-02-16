@@ -1,5 +1,7 @@
 name: D3plus
 navigation:
+- text: Examples
+  url: /examples/
 - text: Documentation
   url: https://github.com/alexandersimoes/d3plus/wiki
 - text: Workshops

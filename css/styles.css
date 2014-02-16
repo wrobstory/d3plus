@@ -14,6 +14,10 @@ body {
 h1,h2,h3,h4,h5 {
   font-weight: normal;
 }
+h5 {
+  color: #b35c1e;
+  margin: 0px;
+}
 a {
   text-decoration: none;
   color: #b35c1e; /* rust */
@@ -103,15 +107,17 @@ section.topic-3 .example {
   vertical-align: top;
   display: table-cell;
 }
+iframe {
+  border: none;
+  overflow: hidden;
+  padding: 0;
+}
 section.topic-2 .example iframe,
 section.topic-3 .example iframe {
   position: relative;
   left: -5px;
   width: 100%;
-  border: none;
   margin: 0;
-  overflow: hidden;
-  padding: 0;
 }
 section.topic-2 .code,
 section.topic-3 .code {
