@@ -14,35 +14,24 @@
 <div id="viz"></div>
 
 <script>
-
-  // sample data array
-  var sample_data = [
-    {"value": 100, "name": "alpha"},
-    {"value": 70, "name": "beta"},
-    {"value": 40, "name": "gamma"},
-    {"value": 15, "name": "delta"},
-    {"value": 5, "name": "epsilon"},
-    {"value": 1, "name": "zeta"}
-  ]
   
   var connections = [
     {"source": "alpha", "target": "beta"},
     {"source": "alpha", "target": "gamma"},
     {"source": "beta", "target": "delta"},
     {"source": "beta", "target": "epsilon"},
-    {"source": "zeta", "target": "gamma"}
+    {"source": "zeta", "target": "gamma"},
+    {"source": "theta", "target": "gamma"},
+    {"source": "eta", "target": "gamma"}
   ]
 
   // instantiate d3plus
   var visualization = d3plus.viz()
     .container("#viz")  // container DIV to hold the visualization
-    .data(sample_data)  // data to use with the visualization
-    .type("rings")   // visualization type
+    .type("rings")      // visualization type
     .links(connections)
     .focus("alpha")
     .id("name")         // key for which our data is unique on
-    .text("name")       // key to use for display text
-    // .size("value")      // sizing of blocks
     .draw()             // finally, draw the visualization!
 
 </script>
