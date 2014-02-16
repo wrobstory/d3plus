@@ -100,10 +100,14 @@
     margin: 0px;
   }
   
-  div.column div {
+  div.column div.body {
     font-size: 12px;
     line-height: 15px;
     text-align: left;
+  }
+  
+  div#releases > div {
+    margin-bottom: 10px;
   }
   
 </style>
@@ -149,8 +153,22 @@
   
   <div class="column">
     <h2>Examples</h2>
+    
+    <a class="example" href="/examples/getting_started/tree_map/">
+      <img src="/examples/getting_started/tree_map/thumbnail.png">
+      Simple Tree Map
+    </a>
+    <a class="example" href="/examples/getting_started/stacked/">
+      <img src="/examples/getting_started/stacked/thumbnail.png">
+      Simple Stacked<br>Area Chart
+    </a>
+    
+    <a class="button standalone" href="/examples/">See more examples &rarr;</a>
+    
   </div><div class="column" id="releases">
     <h2>Current Release</h2>
+    
+    <a class="button standalone" href="https://github.com/alexandersimoes/d3plus/releases" target="_blank">See all releases &rarr;</a>
   </div>
   
 </section>
@@ -165,6 +183,8 @@
   // Get releases list
   $(function(){
     $.getJSON('https://api.github.com/repos/alexandersimoes/d3plus/releases?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067&callback=?', function(d){
+      
+      var div = d3.select("#releases").insert("div",".button")
 
       if (d && d.data && !d.data.message) {
 
@@ -172,14 +192,17 @@
           return !r.draft
         })[0]
         
-        d3.select("#releases").append("h3").html(r.name)
-        d3.select("#releases").append("h5").html(new Date(r.published_at).toLocaleString().split(" ")[0])
+        div.append("h3").html(r.name)
+        div.append("h5").html(new Date(r.published_at).toLocaleString().split(" ")[0])
         
         var converter = new Showdown.converter();
         var html = converter.makeHtml(r.body);
         
-        d3.select("#releases").append("div").html(html)
+        div.append("div").attr("class","body").html(html)
         
+      }
+      else {
+        div.html("Github not responding.")
       }
       
     });

@@ -58,7 +58,7 @@ header h1 a:hover {
 }
 header h2, section h2 {
   color: #b35c1e; /* rust */
-  padding: 0.5em 0.75em 0.67em;
+  padding: 12px 20px 14px;
 }
 header a {
   color: #aaa;
@@ -67,6 +67,23 @@ header a {
 header a.active {
   color: #b35c1e;
   text-decoration: none;
+}
+
+a.example {
+  display: inline-block;
+  margin: 2px 0px 20px 20px;
+  padding: 10px;
+  text-align: center;
+  vertical-align: top;
+  width: 130px;
+}
+
+a.example img {
+  display: block;
+  height: 100px;
+  margin: -10px -10px 5px -10px;
+  opacity: 0.9;
+  width: 150px;
 }
 
 
@@ -85,7 +102,11 @@ header a.active {
 #content h2.bar {
   background: #b35c1e;
   color: white;
-  padding: 0.5em 0.75em 0.67em;
+  margin: 20px 0px;
+}
+
+section {
+  position: relative;
 }
 
 section.topic-2,
@@ -111,6 +132,9 @@ iframe {
   border: none;
   overflow: hidden;
   padding: 0;
+}
+iframe.example {
+  margin: 0px 12px 12px 12px;
 }
 section.topic-2 .example iframe,
 section.topic-3 .example iframe {
@@ -171,7 +195,6 @@ p.learn_more {
   background: #ffffca;
   padding: 10px;
 }
-
 
 /*
   BUTTONS!
@@ -246,4 +269,9 @@ p.learn_more {
 }
 .button.tertiar:hover {
   color: #fe9600;
+}
+.button.right {
+  position: absolute;
+  right: 20px;
+  top: 8px;
 }
