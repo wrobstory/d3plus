@@ -148,6 +148,15 @@ section.topic-3 .example iframe {
   width: 100%;
   margin: 0;
 }
+code {
+  background-color: #efefef;
+  border: 1px solid #ddd;
+  font-size: 10px;
+  font-weight: bold;
+}
+code:before, code:after {
+  content: "\00a0";
+}
 section.topic-2 .code,
 section.topic-3 .code {
   padding-top: 2%;
