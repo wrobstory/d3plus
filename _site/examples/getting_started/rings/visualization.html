@@ -14,7 +14,20 @@
 <div id="viz"></div>
 
 <script>
+
+  // create sample dataset
+  var sample_data = [
+    {"name": "alpha", "size": 10},
+    {"name": "beta", "size": 12},
+    {"name": "gamma", "size": 30},
+    {"name": "delta", "size": 26},
+    {"name": "epsilon", "size": 12},
+    {"name": "zeta", "size": 26},
+    {"name": "theta", "size": 11},
+    {"name": "eta", "size": 24}
+  ]
   
+  // create list of node connections
   var connections = [
     {"source": "alpha", "target": "beta"},
     {"source": "alpha", "target": "gamma"},
@@ -29,9 +42,10 @@
   var visualization = d3plus.viz()
     .container("#viz")  // container DIV to hold the visualization
     .type("rings")      // visualization type
-    .links(connections)
-    .focus("alpha")
+    .data(sample_data)  // sample dataset
     .id("name")         // key for which our data is unique on
+    .links(connections) // list of node connections
+    .focus("alpha")     // ID of the initial center node
     .draw()             // finally, draw the visualization!
 
 </script>

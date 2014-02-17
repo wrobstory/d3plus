@@ -71,7 +71,7 @@ header a.active {
 
 a.example {
   display: inline-block;
-  margin: 2px 0px 20px 20px;
+  margin: 20px 0px 20px 37px;
   padding: 10px;
   text-align: center;
   vertical-align: top;
@@ -79,11 +79,16 @@ a.example {
 }
 
 a.example img {
+  border: 1px solid #ccc;
   display: block;
   height: 100px;
   margin: -10px -10px 5px -10px;
   opacity: 0.9;
   width: 150px;
+}
+
+a.example:hover img {
+  border-color: #aaa;
 }
 
 
