@@ -56,7 +56,7 @@ header h1 a {
 header h1 a:hover {
   color: #808080;  
 }
-header h2, section h2 {
+header h2, section h2, footer h2 {
   color: #b35c1e; /* rust */
   padding: 12px 20px 14px;
 }
@@ -97,8 +97,9 @@ a.example:hover img {
   ------------
 */
 #content {
+  min-height: 70%;
   width: 990px;
-  padding: 0 10px 120px;
+  padding: 0 10px 10px;
   margin: auto;
   font-size: 14px;
   color: #282828;
@@ -208,6 +209,24 @@ div.note {
 p.learn_more {
   background: #ffffca;
   padding: 10px;
+}
+
+footer {
+  background-color: #fcfcfc;
+  border-bottom: 1px solid #f0f0f0;
+  border-top: 1px solid #f0f0f0;
+  margin-top: 75px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+footer a {
+  margin: 0px 10px;
+}
+
+footer img {
+  border: 0;
+  vertical-align: middle;
 }
 
 /*
