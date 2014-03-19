@@ -46,12 +46,12 @@ title: Workshop Introduction
 </section>
 <section class="topic-2">
   <div class="example">
-    <iframe style="height: 220px" src="tree_map_ex1.html"></iframe>
-    <a class="button tertiary standalone" href="tree_map_ex1.html" target="_blank">View standalone &rarr;</a>
+    <iframe style="height: 220px" src="tree_map_simple.html"></iframe>
+    <a class="button tertiary standalone" href="tree_map_simple.html" target="_blank">View standalone &rarr;</a>
     <br><br>
   </div>
   <div class="code">
-    <script src="https://gist.github.com/alexandersimoes/7516456.js"></script>
+    <script src="https://gist.github.com/alexandersimoes/9647171.js"></script>
   </div>
 </section>
 
@@ -79,9 +79,9 @@ title: Workshop Introduction
   <p>
     Utilizing the nesting feature of D3plus takes a bit more explanation. As mentioned previously we will be nesting songs within albums and albums within artists. D3plus is smart enough to handle any nesting specified so long as the <code>.id()</code> attribute is set with an array of the keys from our data ordered from highest to deepest nesting. Thus in our example below we set our nesting via <code>.id(["artist_id","album_id","song_id"])</code>.
   </p>
-  <h3>Sizing A.K.A. Setting the Value</h3>
+  <h3>Sizing</h3>
   <p>
-    As expected, the attribute to set for the sizing of the nodes in our tree map (and throughout all the other D3plus visualizations) id <code>.value()</code>. The tricky part here is that our data only has a value attribute for the nodes at the deepest level. So how does D3plus know what size to make the shallower nested nodes? It will default to summing which ever attribute is specified in the <code>.value()</code>. But in our case we do not want to give a higher "hotttnesss" value to albums or artists simply because our dataset has more of their songs, instead we would like to use the average hotttnesss. Enter aggregations called via <code>.aggs()</code>. In this example we use the following: <code>.aggs({"hotttnesss":"mean"})</code>. To see a list of other possible aggregation function look at the <a href="https://github.com/alexandersimoes/d3plus/wiki/Visualization-Variables#wiki-aggs">wiki article</a>.
+    As expected, the attribute to set for the sizing of the nodes in our tree map (and throughout all the other D3plus visualizations) id <code>.size()</code>. The tricky part here is that our data only has a value attribute for the nodes at the deepest level. So how does D3plus know what size to make the shallower nested nodes? It will default to summing which ever attribute is specified in the <code>.size()</code>. But in our case we do not want to give a higher "hotttnesss" value to albums or artists simply because our dataset has more of their songs, instead we would like to use the average hotttnesss. Enter aggregations called via <code>.aggs()</code>. In this example we use the following: <code>.aggs({"hotttnesss":"mean"})</code>. To see a list of other possible aggregation function look at the <a href="https://github.com/alexandersimoes/d3plus/wiki/Visualization-Variables#wiki-aggs">wiki article</a>.
   </p>
   <h3>Pretty Text</h3>
   <p>
@@ -90,28 +90,11 @@ title: Workshop Introduction
 </section>
 <section class="topic-2">
   <div class="example">
-    <iframe style="height: 220px" src="/million_songs/tree_map.html"></iframe>
-    <a class="button tertiary standalone" href="/million_songs/tree_map.html" target="_blank">View standalone &rarr;</a>
+    <iframe style="height: 220px" src="tree_map_artists.html"></iframe>
+    <a class="button tertiary standalone" href="tree_map_artists.html" target="_blank">View standalone &rarr;</a>
     <br><br>
   </div>
   <div class="code">
-    <script src="https://gist.github.com/alexandersimoes/7517940.js"></script>
-  </div>
-</section>
-
-<h2 class="bar">Changing It Up</h2>
-<section>
-  <p>
-    It's one thing to build a pretty picture with your data but it's another to make it interactive. With many of the attributes discussed in the previous sections, we will want to update them to see different views of our data. Here is how we would do that.
-  </p>
-</section>
-<section class="topic-2">
-  <div class="example">
-    <iframe style="height: 220px" src="/million_songs/tree_map_albums.html"></iframe>
-    <a class="button tertiary standalone" href="/million_songs/tree_map_albums.html" target="_blank">View standalone &rarr;</a>
-    <br><br>
-  </div>
-  <div class="code">
-    <script src="https://gist.github.com/alexandersimoes/7518802.js"></script>
+    <script src="https://gist.github.com/alexandersimoes/9647348.js"></script>
   </div>
 </section>
