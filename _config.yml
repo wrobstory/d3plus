@@ -59,3 +59,25 @@ workshops:
       url: rings
     - text: Future Development
       url: future
+  
+  nav_03_19_2014:
+    title: "Workshop 3: March 19th, 2013 (Networks)"
+    links:
+    - text: Intro
+      url: intro
+    - text: Local Environment
+      url: env
+    - text: Downloading D3plus
+      url: download
+    - text: Formatting Edges
+      url: edges
+    - text: Viz
+      url: viz
+    - text: Your Data
+      url: your_data
+    - text: Rings
+      url: rings
+    - text: Customizing
+      url: customizing
+    - text: Tree Map
+      url: tree_map
