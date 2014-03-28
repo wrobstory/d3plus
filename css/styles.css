@@ -6,6 +6,7 @@ html, body {
   height: 100%;
 }
 body {
+  background-color: white;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   margin: 0;
@@ -19,11 +20,13 @@ h5 {
   margin: 0px;
 }
 a {
-  text-decoration: none;
   color: #b35c1e; /* rust */
+  text-decoration: none;
+  -webkit-transition: color .1s;
+          transition: color .1s;
 }
 a:hover {
-  color: #fe9600; /* orange */
+  color: #C9853A; /* orange */
 }
 .clear {
   clear: both;
@@ -37,11 +40,37 @@ a:hover {
   ------
 */
 header {
+  background-color: #f7f7f7;
+  box-shadow: 0px 0px 5px #eee;
   font-size: 14px;
   border-bottom: 1px solid #f0f0f0;
   color: #e0e0e0;
   display: block;
+  margin-bottom: -10px;
+  padding: 10px 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 9999;
 }
+
+@media only screen and (max-device-width: 1000px) {
+  header {
+    position: absolute;
+  }
+}
+
+section header {
+  background-color: transparent;
+  box-shadow: none;
+  position: static;
+}
+
+nav {
+  margin: 0px auto;
+  width: 990px;
+}
+
 header h1 {
   display: inline-block;
   margin: 0;
@@ -54,7 +83,7 @@ header h1 a {
   font-weight: normal;
 }
 header h1 a:hover {
-  color: #808080;  
+  color: #808080;
 }
 header h2, section h2, footer h2 {
   color: #b35c1e; /* rust */
@@ -70,25 +99,110 @@ header a.active {
 }
 
 a.example {
+  background-color: #b35c1e;
+  border: 1px solid #b35c1e;
+  box-shadow: 0px 2px 5px #ccc;
   display: inline-block;
-  margin: 20px 0px 20px 37px;
-  padding: 10px;
-  text-align: center;
-  vertical-align: top;
-  width: 130px;
-}
-
-a.example img {
-  border: 1px solid #ccc;
-  display: block;
   height: 100px;
-  margin: -10px -10px 5px -10px;
-  opacity: 0.9;
+  margin: 0px 0px 20px 37px;
+  padding: 0px;
+  position: relative;
+  -webkit-transition: box-shadow .1s;
+          transition: box-shadow .1s;
+  vertical-align: top;
   width: 150px;
 }
 
+a.example img {
+  border: 0px;
+  display: block;
+  height: 100px;
+  opacity: 0.9;
+  -webkit-transition: opacity .1s;
+          transition: opacity .1s;
+  width: 150px;
+}
+
+a.example div {
+  background-color: rgba(179,92,30,0.75);
+  bottom: 0px;
+  color: #f7f7f7;
+  font-size: 12px;
+  padding: 3px 5px;
+  position: absolute;
+  text-align: left;
+  -webkit-transition: background-color .1s;
+          transition: background-color .1s;
+  width: 140px;
+}
+
+a.example:hover {
+  box-shadow: 0px 2px 5px #999;
+}
+
 a.example:hover img {
-  border-color: #aaa;
+  opacity: 1;
+}
+
+a.example:hover div {
+  background-color: rgba(179,92,30,0.9);
+}
+
+.button {
+  background-color: #b35c1e;
+    box-shadow: 0px 2px 5px #ccc;
+  color: #f7f7f7;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 18px;
+  opacity: 0.8;
+  padding: 3px 10px 4px;
+  text-align: center;
+  -webkit-transition: box-shadow .1s, opacity .1s;
+          transition: box-shadow .1s, opacity .1s;
+}
+
+.button:hover {
+  box-shadow: 0px 2px 5px #999;
+  color: #f7f7f7;
+  opacity: 1;
+}
+
+.button.right {
+  position: absolute;
+  right: 25px;
+  top: 10px;
+}
+
+footer {
+  background-color: #fcfcfc;
+  border-bottom: 1px solid #f0f0f0;
+  border-top: 1px solid #f0f0f0;
+  margin-top: 75px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+footer h4 {
+  color: #888;
+  margin-bottom: 5px;
+}
+
+footer a {
+  margin: 0px 10px;
+  opacity: 0.8;
+  -webkit-transition: opacity .1s;
+          transition: opacity .1s;
+}
+
+footer a:hover {
+  opacity: 1;
+}
+
+footer img {
+  border: 0;
+  vertical-align: middle;
 }
 
 
@@ -100,15 +214,15 @@ a.example:hover img {
   min-height: 70%;
   width: 990px;
   padding: 0 10px 10px;
-  margin: auto;
+  margin: 105px auto 35px;
   font-size: 14px;
   color: #282828;
   line-height: 155%;
 }
 #content h2.bar {
-  background: #b35c1e;
-  color: white;
-  margin: 20px 0px;
+  background: rgba(179,92,30,0.15);
+  color: rgba(179,92,30,1);
+  margin: 10px 0px 20px;
 }
 
 section {
@@ -117,7 +231,7 @@ section {
 
 section.topic-2,
 section.topic-3 {
-  display: table; 
+  display: table;
   table-layout: fixed;
   border-top: 1px solid #dedede;
   margin-top: 2%;
@@ -207,104 +321,6 @@ div.note {
   margin: 30px 0 0 0;
 }
 p.learn_more {
-  background: #ffffca;
+  background: #f7f7f7fca;
   padding: 10px;
-}
-
-footer {
-  background-color: #fcfcfc;
-  border-bottom: 1px solid #f0f0f0;
-  border-top: 1px solid #f0f0f0;
-  margin-top: 75px;
-  padding-bottom: 40px;
-  text-align: center;
-}
-
-footer a {
-  margin: 0px 10px;
-}
-
-footer img {
-  border: 0;
-  vertical-align: middle;
-}
-
-/*
-  BUTTONS!
-  --------
-
-  Taken from bl.ocks.org. Thanks!
-*/
-.button {
-  display: inline-block;
-  padding: 4px 10px 4px;
-  margin-bottom: 0;
-  font-size: 13px;
-  line-height: 18px;
-  color: #333;
-  text-align: center;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-  vertical-align: middle;
-  background-color: whiteSmoke;
-  background-image: -moz-linear-gradient(top, white, #E6E6E6);
-  background-image: -ms-linear-gradient(top, white, #E6E6E6);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#E6E6E6));
-  background-image: -webkit-linear-gradient(top, white, #E6E6E6);
-  background-image: -o-linear-gradient(top, white, #E6E6E6);
-  background-image: linear-gradient(top, white, #E6E6E6);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
-  border-color: #E6E6E6 #E6E6E6 #BFBFBF;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  filter: progid:dximagetransform.microsoft.gradient(enabled=false);
-  border: 1px solid #CCC;
-  border-bottom-color: #B3B3B3;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-  cursor: pointer;
-}
-.button:hover {
-  opacity: 0.92;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
-  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
-}
-.button.red {
-  background-color: #FAA732;
-  background-image: -moz-linear-gradient(top, #e8480e, #c73e0c);
-  background-image: -ms-linear-gradient(top, #e8480e, #c73e0c);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e8480e), to(#c73e0c));
-  background-image: -webkit-linear-gradient(top, #e8480e, #c73e0c);
-  background-image: -o-linear-gradient(top, #e8480e, #c73e0c);
-  background-image: linear-gradient(top, #e8480e, #c73e0c);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fbb450', endColorstr='#f89406', GradientType=0);
-  border-color: #c73e0c #c73e0c #AD6704;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  filter: progid:dximagetransform.microsoft.gradient(enabled=false);
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  color: white;
-}
-.button.large {
-  padding: 11px 16px;
-  font-size: 18px;
-  line-height: normal;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-}
-.button.tertiary {
-  color: #b35c1e;
-}
-.button.tertiar:hover {
-  color: #fe9600;
-}
-.button.right {
-  position: absolute;
-  right: 20px;
-  top: 8px;
 }

@@ -29,53 +29,53 @@ title: D3plus
     text-align: left;
     width: 350px;
   }
-  
+
   section {
     margin: 75px auto 0px;
     text-align: center;
     width: 800px;
   }
-  
+
   section#links a {
     display: inline-block;
     font-size: 12px;
     margin: 0px;
     width: 100px;
   }
-  
+
   section#links a i {
     display: block;
     font-size: 50px;
   }
-  
+
   section#links a span {
     display: inline-block;
   }
-  
+
   div.column {
     display: inline-block;
     vertical-align: top;
     width: 400px;
   }
-  
+
   div.column h2, div.column h3 {
     margin: 0px;
   }
-  
+
   div.column div.body {
     font-size: 12px;
     line-height: 15px;
     text-align: left;
   }
-  
+
   div#releases > div {
     margin-bottom: 10px;
   }
-  
+
   a.example {
     margin: 10px !important;
   }
-  
+
 </style>
 
 
@@ -116,35 +116,38 @@ title: D3plus
 </section>
 
 <section>
-  
-  <div class="column">
-    <h2>Examples</h2>
-    
-    <a class="example" href="/examples/getting_started/tree_map/">
-      <img src="/examples/getting_started/tree_map/thumbnail.png">
-      Tree Map
-    </a>
-    <a class="example" href="/examples/getting_started/rings/">
-      <img src="/examples/getting_started/rings/thumbnail.png">
-      Rings
-    </a>
-    <a class="example" href="/examples/getting_started/geo_map/">
-      <img src="/examples/getting_started/geo_map/thumbnail.png">
-      Geo Map
-    </a>
-    <a class="example" href="/examples/getting_started/stacked/">
-      <img src="/examples/getting_started/stacked/thumbnail.png">
-      Stacked Area Chart
-    </a>
-    
-    <a class="button standalone" href="/examples/">See more examples &rarr;</a>
-    
-  </div><div class="column" id="releases">
+
+  <div class="column" id="releases">
+
     <h2>Current Release</h2>
-    
-    <a class="button standalone" href="https://github.com/alexandersimoes/d3plus/releases" target="_blank">See all releases &rarr;</a>
+    <br>
+    <a class="button standalone" href="https://github.com/alexandersimoes/d3plus/releases" target="_blank">All Releases <i class="fa fa-angle-right"></i></a>
+
+  </div><div class="column">
+
+    <h2>Examples</h2>
+
+    <a class="example" href="/examples/tree_map/simple/">
+      <img src="/examples/tree_map/simple/thumbnail.png">
+      <div>Simple Tree Map</div>
+    </a>
+    <a class="example" href="/examples/rings/simple/">
+      <img src="/examples/rings/simple/thumbnail.png">
+      <div>Simple Rings</div>
+    </a>
+    <a class="example" href="/examples/geo_map/simple/">
+      <img src="/examples/geo_map/simple/thumbnail.png">
+      <div>Simple Geo Map</div>
+    </a>
+    <a class="example" href="/examples/stacked/simple/">
+      <img src="/examples/stacked/simple/thumbnail.png">
+      <div>Simple Stacked Area Chart</div>
+    </a>
+    <br>
+    <a class="button standalone" href="/examples/">More Examples <i class="fa fa-angle-right"></i></a>
+
   </div>
-  
+
 </section>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -153,11 +156,11 @@ title: D3plus
 <script>
 
   /* Grrrr... forced to use jquery because D3 does not have JSONP support */
-  
+
   // Get releases list
   $(function(){
     $.getJSON('https://api.github.com/repos/alexandersimoes/d3plus/releases?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067&callback=?', function(d){
-      
+
       var div = d3.select("#releases").insert("div",".button")
 
       if (d && d.data && !d.data.message) {
@@ -165,37 +168,37 @@ title: D3plus
         var r = d.data.filter(function(r){
           return !r.draft
         })[0]
-        
+
         div.append("h3").html(r.name)
         div.append("h5").html(new Date(r.published_at).toLocaleString().split(" ")[0])
-        
+
         var converter = new Showdown.converter();
         var html = converter.makeHtml(r.body);
-        
+
         div.append("div").attr("class","body").html(html)
-        
+
       }
       else {
         div.html("Github not responding.")
       }
-      
+
     });
   });
 
   // Get generic Github stats
   $(function(){
     $.getJSON('https://api.github.com/repos/alexandersimoes/d3plus?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067&callback=?', function(d){
-      
+
       if (d && d.data && !d.data.message) {
 
         $('#issues').text(": "+d.data.open_issues_count);
         $('#watchers').text(": "+d.data.subscribers_count);
         $('#stars').text(": "+d.data.stargazers_count);
         $('#forks').text(": "+d.data.forks_count);
-        
+
       }
-      
+
     });
   });
-  
+
 </script>
