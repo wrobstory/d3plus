@@ -36,6 +36,10 @@ title: D3plus
     width: 800px;
   }
 
+  section h2 {
+    text-align: left;
+  }
+
   section#links a {
     display: inline-block;
     font-size: 12px;
@@ -52,24 +56,17 @@ title: D3plus
     display: inline-block;
   }
 
-  div.column {
+  section#releases div.body {
     display: inline-block;
-    vertical-align: top;
-    width: 400px;
-  }
-
-  div.column h2, div.column h3 {
-    margin: 0px;
-  }
-
-  div.column div.body {
     font-size: 12px;
     line-height: 15px;
+    margin-bottom: 10px;
     text-align: left;
+    width: 700px;
   }
 
-  div#releases > div {
-    margin-bottom: 10px;
+  section#releases div.body h2 {
+    text-align: center;
   }
 
   a.example {
@@ -117,36 +114,39 @@ title: D3plus
 
 <section>
 
-  <div class="column" id="releases">
-
-    <h2>Current Release</h2>
-    <br>
-    <a class="button standalone" href="https://github.com/alexandersimoes/d3plus/releases" target="_blank">All Releases <i class="fa fa-angle-right"></i></a>
-
-  </div><div class="column">
-
-    <h2>Examples</h2>
+    <h2 class="bar">Examples</h2>
 
     <a class="example" href="/examples/tree_map/simple/">
       <img src="/examples/tree_map/simple/thumbnail.png">
       <div>Simple Tree Map</div>
     </a>
+    <a class="example" href="/examples/network/simple/">
+      <img src="/examples/network/simple/thumbnail.png">
+      <div>Simple Network</div>
+    </a>
     <a class="example" href="/examples/rings/simple/">
       <img src="/examples/rings/simple/thumbnail.png">
       <div>Simple Rings</div>
-    </a>
-    <a class="example" href="/examples/geo_map/simple/">
-      <img src="/examples/geo_map/simple/thumbnail.png">
-      <div>Simple Geo Map</div>
     </a>
     <a class="example" href="/examples/stacked/simple/">
       <img src="/examples/stacked/simple/thumbnail.png">
       <div>Simple Stacked Area Chart</div>
     </a>
     <br>
-    <a class="button standalone" href="/examples/">More Examples <i class="fa fa-angle-right"></i></a>
 
-  </div>
+    <a class="button right" href="/examples/">
+      More Examples <i class="fa fa-angle-right"></i>
+    </a>
+
+</section>
+
+<section id="releases">
+
+    <h2 class="bar">Current Release</h2>
+
+    <a class="button right" href="https://github.com/alexandersimoes/d3plus/releases" target="_blank">
+      All Releases <i class="fa fa-angle-right"></i>
+    </a>
 
 </section>
 
