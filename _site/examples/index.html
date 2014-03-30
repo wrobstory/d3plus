@@ -4,7 +4,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Examples</title>
+    <title>D3plus Examples</title>
     <meta name="description" content="Data visualization made easy. A javascript library that extends the popular D3.js to enable fast and beautiful visualizations."/>
 
     <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.ico">
@@ -22,24 +22,20 @@
   </head>
   <body>
 
-    <!-- <a href="https://github.com/alexandersimoes/d3plus">
-      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub">
-    </a> -->
-
     <header>
       <nav>
         <h1><a href="/">D3plus</a></h1>
         
         
-        <a class="active" href="/examples/" title="">Examples</a>
+        <a class="active" href="/examples/">Examples</a>
         
-        <a  href="https://github.com/alexandersimoes/d3plus/wiki" title="">Documentation</a>
+        <a  href="https://github.com/alexandersimoes/d3plus/wiki">Documentation</a>
         
-        <a  href="/workshops/" title="">Workshops</a>
+        <a  href="/workshops/">Workshops</a>
         
-        <a  href="/d3plus.zip" title="">Download</a>
+        <a  href="/d3plus.zip">Download</a>
         
-        <a  href="https://github.com/alexandersimoes/d3plus" title="">Source</a>
+        <a  href="https://github.com/alexandersimoes/d3plus">Source</a>
         
       </nav>
     </header>
@@ -47,81 +43,558 @@
 
     <div id="content">
       <section>
-
-  <h2>Tree Map</h2>
-
-  <a class="example" href="/examples/tree_map/simple/">
-    <img src="/examples/tree_map/simple/thumbnail.png">
-    <div>Simple Tree Map</div>
-  </a>
-
+  <h2></h2>
 </section>
 
-<section>
+<script src="/js/d3.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="/js/showdown.js"></script>
 
-  <h2>Scatterplot</h2>
+<script>
 
-  <a class="example" href="/examples/scatter/simple/">
-    <img src="/examples/scatter/simple/thumbnail.png">
-    <div>Simple Scatterplot</div>
-  </a>
+  var id = location.search.substr(1)
 
-</section>
+  function adjustIframeSize(newHeight) {
+    var i = document.getElementById("gistFrame");
+    i.style.height = parseInt(newHeight) + "px";
+  }
 
-<section>
+  if (id) {
 
-  <h2>Line Chart</h2>
+    d3.json("https://api.github.com/gists/"+id,function(error,gist){
 
-  <a class="example" href="/examples/line/simple/">
-    <img src="/examples/line/simple/thumbnail.png">
-    <div>Simple Line Chart</div>
-  </a>
+      if (error || gist.length == 0) {
 
-</section>
+        d3.select("section h2").text("Error loading example.")
 
-<section>
+      }
+      else {
 
-  <h2>Stacked Area Chart</h2>
+        var section = d3.select("section")
 
-  <a class="example" href="/examples/stacked/simple/">
-    <img src="/examples/stacked/simple/thumbnail.png">
-    <div>Simple Stacked Area Chart</div>
-  </a>
+        var title = gist.description || id
 
-</section>
+        document.title = title +" with D3plus"
 
-<section>
+        section.select("h2").text(title)
 
-  <h2>Geo Map</h2>
+        var readme = gist.files["README.md"]
+        if (readme) {
 
-  <a class="example" href="/examples/geo_map/simple/">
-    <img src="/examples/geo_map/simple/thumbnail.png">
-    <div>Geo Map</div>
-  </a>
+          var md = readme.content.replace(/\n\nFeatured on \[D3plus\.org\]\(http\:\/\/www\.d3plus\.org\/\)/g,"")
+          md = md.replace(/\nFeatured on \[D3plus\.org\]\(http\:\/\/www\.d3plus\.org\/\)/g,"")
+          md = md.replace(/Featured on \[D3plus\.org\]\(http\:\/\/www\.d3plus\.org\/\)/g,"")
 
-</section>
+          var converter = new Showdown.converter(),
+              html = converter.makeHtml(md)
 
-<section>
+          section.append("p").attr("class","example").html(html)
 
-  <h2>Network</h2>
+        }
 
-  <a class="example" href="/examples/network/simple/">
-    <img src="/examples/network/simple/thumbnail.png">
-    <div>Simple Static Network</div>
-  </a>
+        var block = "http://bl.ocks.org/"+gist.user.login+"/raw/"+id+"/"+gist.history[0].version+"/"
 
-</section>
+        section.append("a")
+          .attr("class","button right")
+          .attr("href",block)
+          .attr("target","_blank")
+          .html("View Standalone <i class='fa fa-angle-right'></i>")
 
-<section>
+        section.append("iframe")
+          .attr("class","example")
+          .attr("width","960")
+          .attr("height","640")
+          .attr("src",block)
 
-  <h2>Rings</h2>
+        var code = "https://gist.github.com/"+gist.user.login+"/"+id+".js?file=index.html"
 
-  <a class="example" href="/examples/rings/simple/">
-    <img src="/examples/rings/simple/thumbnail.png">
-    <div>Simple Rings</div>
-  </a>
+        var gistFrame = section.append("iframe")
+          .attr("id","gistFrame")
+          .attr("class","example")
+          .attr("width","960").node()
 
-</section>
+  			// Create the iframe's document
+  			var gistFrameHTML = '<html><body onload="parent.adjustIframeSize(document.body.scrollHeight)"><scr' + 'ipt type="text/javascript" src="' + code + '"></sc'+'ript></body></html>';
+
+  			// Set iframe's document with a trigger for this document to adjust the height
+  			var gistFrameDoc = gistFrame.document;
+
+  			if (gistFrame.contentDocument) {
+  				gistFrameDoc = gistFrame.contentDocument;
+  			} else if (gistFrame.contentWindow) {
+  				gistFrameDoc = gistFrame.contentWindow.document;
+  			}
+
+  			gistFrameDoc.open();
+  			gistFrameDoc.writeln(gistFrameHTML);
+  			gistFrameDoc.close();
+
+      }
+
+    })
+
+  }
+  else {
+
+    var q = queue()
+    
+      q.defer(d3.json,"https://api.github.com/users/davelandry/gists?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067")
+    
+      q.defer(d3.json,"https://api.github.com/users/alexandersimoes/gists?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067")
+    
+    q.awaitAll(function(error,data){
+
+      if (error || data.length == 0) {
+
+        d3.select("section h2").text("Error loading examples.")
+
+      }
+      else {
+
+        var merged = []
+        merged = merged.concat.apply(merged,data).filter(function(g){
+          return g.public
+        })
+
+        var gists = {}
+        merged.forEach(function(m){
+          gists[m.id] = m
+        })
+
+        d3.select("section").remove()
+
+        function enter(elem) {
+
+          elem.style("opacity",0)
+            .transition().duration(300)
+            .style("opacity",1)
+
+        }
+
+        
+
+          var section = d3.select("#content").append("section")
+          section.append("h2").text("Tree Map")
+            .call(enter)
+
+          
+
+            var gist = gists[9029130]
+
+            if (gist) {
+
+              var title = gist.description || gist.id,
+                  image = gist.files["thumbnail.png"]
+                    ? gist.files["thumbnail.png"].raw_url
+                    : "/assets/img/thumbnail.png"
+
+              var button = section.append("a")
+                .attr("class","example")
+                .attr("href","?9029130")
+                .call(enter)
+
+              button.append("img")
+                .attr("src",image)
+                .attr("alt","9029130")
+
+              button.append("div")
+                .attr("class","title")
+                .text(title)
+
+              button.append("div")
+                .attr("class","date")
+                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+            }
+
+          
+
+            var gist = gists[9860719]
+
+            if (gist) {
+
+              var title = gist.description || gist.id,
+                  image = gist.files["thumbnail.png"]
+                    ? gist.files["thumbnail.png"].raw_url
+                    : "/assets/img/thumbnail.png"
+
+              var button = section.append("a")
+                .attr("class","example")
+                .attr("href","?9860719")
+                .call(enter)
+
+              button.append("img")
+                .attr("src",image)
+                .attr("alt","9860719")
+
+              button.append("div")
+                .attr("class","title")
+                .text(title)
+
+              button.append("div")
+                .attr("class","date")
+                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+            }
+
+          
+
+            var gist = gists[9860411]
+
+            if (gist) {
+
+              var title = gist.description || gist.id,
+                  image = gist.files["thumbnail.png"]
+                    ? gist.files["thumbnail.png"].raw_url
+                    : "/assets/img/thumbnail.png"
+
+              var button = section.append("a")
+                .attr("class","example")
+                .attr("href","?9860411")
+                .call(enter)
+
+              button.append("img")
+                .attr("src",image)
+                .attr("alt","9860411")
+
+              button.append("div")
+                .attr("class","title")
+                .text(title)
+
+              button.append("div")
+                .attr("class","date")
+                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+            }
+
+          
+
+            var gist = gists[9860999]
+
+            if (gist) {
+
+              var title = gist.description || gist.id,
+                  image = gist.files["thumbnail.png"]
+                    ? gist.files["thumbnail.png"].raw_url
+                    : "/assets/img/thumbnail.png"
+
+              var button = section.append("a")
+                .attr("class","example")
+                .attr("href","?9860999")
+                .call(enter)
+
+              button.append("img")
+                .attr("src",image)
+                .attr("alt","9860999")
+
+              button.append("div")
+                .attr("class","title")
+                .text(title)
+
+              button.append("div")
+                .attr("class","date")
+                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+            }
+
+          
+
+        
+
+          var section = d3.select("#content").append("section")
+          section.append("h2").text("Scatter")
+            .call(enter)
+
+          
+
+            var gist = gists[9029781]
+
+            if (gist) {
+
+              var title = gist.description || gist.id,
+                  image = gist.files["thumbnail.png"]
+                    ? gist.files["thumbnail.png"].raw_url
+                    : "/assets/img/thumbnail.png"
+
+              var button = section.append("a")
+                .attr("class","example")
+                .attr("href","?9029781")
+                .call(enter)
+
+              button.append("img")
+                .attr("src",image)
+                .attr("alt","9029781")
+
+              button.append("div")
+                .attr("class","title")
+                .text(title)
+
+              button.append("div")
+                .attr("class","date")
+                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+            }
+
+          
+
+            var gist = gists[9861345]
+
+            if (gist) {
+
+              var title = gist.description || gist.id,
+                  image = gist.files["thumbnail.png"]
+                    ? gist.files["thumbnail.png"].raw_url
+                    : "/assets/img/thumbnail.png"
+
+              var button = section.append("a")
+                .attr("class","example")
+                .attr("href","?9861345")
+                .call(enter)
+
+              button.append("img")
+                .attr("src",image)
+                .attr("alt","9861345")
+
+              button.append("div")
+                .attr("class","title")
+                .text(title)
+
+              button.append("div")
+                .attr("class","date")
+                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+            }
+
+          
+
+        
+
+          var section = d3.select("#content").append("section")
+          section.append("h2").text("Line Chart")
+            .call(enter)
+
+          
+
+            var gist = gists[9037371]
+
+            if (gist) {
+
+              var title = gist.description || gist.id,
+                  image = gist.files["thumbnail.png"]
+                    ? gist.files["thumbnail.png"].raw_url
+                    : "/assets/img/thumbnail.png"
+
+              var button = section.append("a")
+                .attr("class","example")
+                .attr("href","?9037371")
+                .call(enter)
+
+              button.append("img")
+                .attr("src",image)
+                .attr("alt","9037371")
+
+              button.append("div")
+                .attr("class","title")
+                .text(title)
+
+              button.append("div")
+                .attr("class","date")
+                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+            }
+
+          
+
+            var gist = gists[9862486]
+
+            if (gist) {
+
+              var title = gist.description || gist.id,
+                  image = gist.files["thumbnail.png"]
+                    ? gist.files["thumbnail.png"].raw_url
+                    : "/assets/img/thumbnail.png"
+
+              var button = section.append("a")
+                .attr("class","example")
+                .attr("href","?9862486")
+                .call(enter)
+
+              button.append("img")
+                .attr("src",image)
+                .attr("alt","9862486")
+
+              button.append("div")
+                .attr("class","title")
+                .text(title)
+
+              button.append("div")
+                .attr("class","date")
+                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+            }
+
+          
+
+        
+
+          var section = d3.select("#content").append("section")
+          section.append("h2").text("Stacked Area Chart")
+            .call(enter)
+
+          
+
+            var gist = gists[9029462]
+
+            if (gist) {
+
+              var title = gist.description || gist.id,
+                  image = gist.files["thumbnail.png"]
+                    ? gist.files["thumbnail.png"].raw_url
+                    : "/assets/img/thumbnail.png"
+
+              var button = section.append("a")
+                .attr("class","example")
+                .attr("href","?9029462")
+                .call(enter)
+
+              button.append("img")
+                .attr("src",image)
+                .attr("alt","9029462")
+
+              button.append("div")
+                .attr("class","title")
+                .text(title)
+
+              button.append("div")
+                .attr("class","date")
+                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+            }
+
+          
+
+        
+
+          var section = d3.select("#content").append("section")
+          section.append("h2").text("Network")
+            .call(enter)
+
+          
+
+            var gist = gists[9042919]
+
+            if (gist) {
+
+              var title = gist.description || gist.id,
+                  image = gist.files["thumbnail.png"]
+                    ? gist.files["thumbnail.png"].raw_url
+                    : "/assets/img/thumbnail.png"
+
+              var button = section.append("a")
+                .attr("class","example")
+                .attr("href","?9042919")
+                .call(enter)
+
+              button.append("img")
+                .attr("src",image)
+                .attr("alt","9042919")
+
+              button.append("div")
+                .attr("class","title")
+                .text(title)
+
+              button.append("div")
+                .attr("class","date")
+                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+            }
+
+          
+
+        
+
+          var section = d3.select("#content").append("section")
+          section.append("h2").text("Rings")
+            .call(enter)
+
+          
+
+            var gist = gists[9034389]
+
+            if (gist) {
+
+              var title = gist.description || gist.id,
+                  image = gist.files["thumbnail.png"]
+                    ? gist.files["thumbnail.png"].raw_url
+                    : "/assets/img/thumbnail.png"
+
+              var button = section.append("a")
+                .attr("class","example")
+                .attr("href","?9034389")
+                .call(enter)
+
+              button.append("img")
+                .attr("src",image)
+                .attr("alt","9034389")
+
+              button.append("div")
+                .attr("class","title")
+                .text(title)
+
+              button.append("div")
+                .attr("class","date")
+                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+            }
+
+          
+
+        
+
+          var section = d3.select("#content").append("section")
+          section.append("h2").text("Geo Map")
+            .call(enter)
+
+          
+
+            var gist = gists[9042807]
+
+            if (gist) {
+
+              var title = gist.description || gist.id,
+                  image = gist.files["thumbnail.png"]
+                    ? gist.files["thumbnail.png"].raw_url
+                    : "/assets/img/thumbnail.png"
+
+              var button = section.append("a")
+                .attr("class","example")
+                .attr("href","?9042807")
+                .call(enter)
+
+              button.append("img")
+                .attr("src",image)
+                .attr("alt","9042807")
+
+              button.append("div")
+                .attr("class","title")
+                .text(title)
+
+              button.append("div")
+                .attr("class","date")
+                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+            }
+
+          
+
+        
+
+      }
+    })
+
+  }
+
+</script>
 
     </div>
 

@@ -22,24 +22,20 @@
   </head>
   <body>
 
-    <!-- <a href="https://github.com/alexandersimoes/d3plus">
-      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub">
-    </a> -->
-
     <header>
       <nav>
         <h1><a href="/">D3plus</a></h1>
         
         
-        <a  href="/examples/" title="">Examples</a>
+        <a  href="/examples/">Examples</a>
         
-        <a  href="https://github.com/alexandersimoes/d3plus/wiki" title="">Documentation</a>
+        <a  href="https://github.com/alexandersimoes/d3plus/wiki">Documentation</a>
         
-        <a  href="/workshops/" title="">Workshops</a>
+        <a  href="/workshops/">Workshops</a>
         
-        <a  href="/d3plus.zip" title="">Download</a>
+        <a  href="/d3plus.zip">Download</a>
         
-        <a  href="https://github.com/alexandersimoes/d3plus" title="">Source</a>
+        <a  href="https://github.com/alexandersimoes/d3plus">Source</a>
         
       </nav>
     </header>
@@ -99,6 +95,10 @@
     display: inline-block;
   }
 
+  section#releases {
+    margin-top: 25px;
+  }
+
   section#releases div.body {
     display: inline-block;
     font-size: 12px;
@@ -113,7 +113,7 @@
   }
 
   a.example {
-    margin: 10px !important;
+    margin: 10px 10px 25px 10px !important;
   }
 
 </style>
@@ -155,27 +155,9 @@
   </a>
 </section>
 
-<section>
+<section id="examples">
 
     <h2 class="bar">Examples</h2>
-
-    <a class="example" href="/examples/tree_map/simple/">
-      <img src="/examples/tree_map/simple/thumbnail.png">
-      <div>Simple Tree Map</div>
-    </a>
-    <a class="example" href="/examples/network/simple/">
-      <img src="/examples/network/simple/thumbnail.png">
-      <div>Simple Network</div>
-    </a>
-    <a class="example" href="/examples/rings/simple/">
-      <img src="/examples/rings/simple/thumbnail.png">
-      <div>Simple Rings</div>
-    </a>
-    <a class="example" href="/examples/stacked/simple/">
-      <img src="/examples/stacked/simple/thumbnail.png">
-      <div>Simple Stacked Area Chart</div>
-    </a>
-    <br>
 
     <a class="button right" href="/examples/">
       More Examples <i class="fa fa-angle-right"></i>
@@ -193,55 +175,299 @@
 
 </section>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script src="js/d3.js"></script>
-<script src="js/showdown.js"></script>
+<script src="/js/d3.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="/js/showdown.js"></script>
 <script>
 
-  /* Grrrr... forced to use jquery because D3 does not have JSONP support */
+  var q = queue()
+  
+    q.defer(d3.json,"https://api.github.com/users/davelandry/gists?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067")
+  
+    q.defer(d3.json,"https://api.github.com/users/alexandersimoes/gists?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067")
+  
+  q.awaitAll(function(error,data){
 
-  // Get releases list
-  $(function(){
-    $.getJSON('https://api.github.com/repos/alexandersimoes/d3plus/releases?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067&callback=?', function(d){
+    if (error || data.length == 0) {
 
-      var div = d3.select("#releases").insert("div",".button")
+      d3.select("section#examples h2").text("Error loading examples.")
 
-      if (d && d.data && !d.data.message) {
+    }
+    else {
 
-        var r = d.data.filter(function(r){
-          return !r.draft
-        })[0]
+      var merged = []
+      merged = merged.concat.apply(merged,data).filter(function(g){
+        return g.public
+      })
 
-        div.append("h3").html(r.name)
-        div.append("h5").html(new Date(r.published_at).toLocaleString().split(" ")[0])
+      var gists = {}
+      merged.forEach(function(m){
+        gists[m.id] = m
+      })
 
-        var converter = new Showdown.converter();
-        var html = converter.makeHtml(r.body);
+      var section = d3.select("section#examples")
 
-        div.append("div").attr("class","body").html(html)
+      function enter(elem) {
+
+        elem.style("opacity",0)
+          .transition().duration(300)
+          .style("opacity",1)
 
       }
-      else {
-        div.html("Github not responding.")
-      }
 
-    });
+      
+
+        var gist = gists[9029130]
+
+        if (gist) {
+
+          var title = gist.description || gist.id,
+              image = gist.files["thumbnail.png"]
+                ? gist.files["thumbnail.png"].raw_url
+                : "/assets/img/thumbnail.png"
+
+          var button = section.append("a")
+            .attr("class","example")
+            .attr("href","/examples/?9029130")
+            .call(enter)
+
+          button.append("img")
+            .attr("src",image)
+            .attr("alt","9029130")
+
+          button.append("div")
+            .attr("class","title")
+            .text(title)
+
+          button.append("div")
+            .attr("class","date")
+            .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+        }
+
+      
+
+        var gist = gists[9029781]
+
+        if (gist) {
+
+          var title = gist.description || gist.id,
+              image = gist.files["thumbnail.png"]
+                ? gist.files["thumbnail.png"].raw_url
+                : "/assets/img/thumbnail.png"
+
+          var button = section.append("a")
+            .attr("class","example")
+            .attr("href","/examples/?9029781")
+            .call(enter)
+
+          button.append("img")
+            .attr("src",image)
+            .attr("alt","9029781")
+
+          button.append("div")
+            .attr("class","title")
+            .text(title)
+
+          button.append("div")
+            .attr("class","date")
+            .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+        }
+
+      
+
+        var gist = gists[9037371]
+
+        if (gist) {
+
+          var title = gist.description || gist.id,
+              image = gist.files["thumbnail.png"]
+                ? gist.files["thumbnail.png"].raw_url
+                : "/assets/img/thumbnail.png"
+
+          var button = section.append("a")
+            .attr("class","example")
+            .attr("href","/examples/?9037371")
+            .call(enter)
+
+          button.append("img")
+            .attr("src",image)
+            .attr("alt","9037371")
+
+          button.append("div")
+            .attr("class","title")
+            .text(title)
+
+          button.append("div")
+            .attr("class","date")
+            .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+        }
+
+      
+
+        var gist = gists[9029462]
+
+        if (gist) {
+
+          var title = gist.description || gist.id,
+              image = gist.files["thumbnail.png"]
+                ? gist.files["thumbnail.png"].raw_url
+                : "/assets/img/thumbnail.png"
+
+          var button = section.append("a")
+            .attr("class","example")
+            .attr("href","/examples/?9029462")
+            .call(enter)
+
+          button.append("img")
+            .attr("src",image)
+            .attr("alt","9029462")
+
+          button.append("div")
+            .attr("class","title")
+            .text(title)
+
+          button.append("div")
+            .attr("class","date")
+            .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+        }
+
+      
+
+        var gist = gists[9042807]
+
+        if (gist) {
+
+          var title = gist.description || gist.id,
+              image = gist.files["thumbnail.png"]
+                ? gist.files["thumbnail.png"].raw_url
+                : "/assets/img/thumbnail.png"
+
+          var button = section.append("a")
+            .attr("class","example")
+            .attr("href","/examples/?9042807")
+            .call(enter)
+
+          button.append("img")
+            .attr("src",image)
+            .attr("alt","9042807")
+
+          button.append("div")
+            .attr("class","title")
+            .text(title)
+
+          button.append("div")
+            .attr("class","date")
+            .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+        }
+
+      
+
+        var gist = gists[9042919]
+
+        if (gist) {
+
+          var title = gist.description || gist.id,
+              image = gist.files["thumbnail.png"]
+                ? gist.files["thumbnail.png"].raw_url
+                : "/assets/img/thumbnail.png"
+
+          var button = section.append("a")
+            .attr("class","example")
+            .attr("href","/examples/?9042919")
+            .call(enter)
+
+          button.append("img")
+            .attr("src",image)
+            .attr("alt","9042919")
+
+          button.append("div")
+            .attr("class","title")
+            .text(title)
+
+          button.append("div")
+            .attr("class","date")
+            .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+        }
+
+      
+
+        var gist = gists[9034389]
+
+        if (gist) {
+
+          var title = gist.description || gist.id,
+              image = gist.files["thumbnail.png"]
+                ? gist.files["thumbnail.png"].raw_url
+                : "/assets/img/thumbnail.png"
+
+          var button = section.append("a")
+            .attr("class","example")
+            .attr("href","/examples/?9034389")
+            .call(enter)
+
+          button.append("img")
+            .attr("src",image)
+            .attr("alt","9034389")
+
+          button.append("div")
+            .attr("class","title")
+            .text(title)
+
+          button.append("div")
+            .attr("class","date")
+            .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+        }
+
+      
+
+    }
+  })
+
+  // Get current release
+  d3.json("https://api.github.com/repos/alexandersimoes/d3plus/releases?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067",function(d){
+
+    var div = d3.select("#releases").insert("div",".button")
+
+    if (d) {
+
+      var r = d.filter(function(r){
+        return !r.draft
+      })[0]
+
+      div.append("h3").html(r.name)
+      div.append("h5").html(new Date(r.published_at).toLocaleDateString())
+
+      var converter = new Showdown.converter();
+      var html = converter.makeHtml(r.body);
+
+      div.append("div").attr("class","body").html(html)
+
+    }
+    else {
+      div.html("Github not responding.")
+    }
+
   });
 
   // Get generic Github stats
-  $(function(){
-    $.getJSON('https://api.github.com/repos/alexandersimoes/d3plus?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067&callback=?', function(d){
+  d3.json("https://api.github.com/repos/alexandersimoes/d3plus?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067",function(d){
 
-      if (d && d.data && !d.data.message) {
+    if (d) {
 
-        $('#issues').text(": "+d.data.open_issues_count);
-        $('#watchers').text(": "+d.data.subscribers_count);
-        $('#stars').text(": "+d.data.stargazers_count);
-        $('#forks').text(": "+d.data.forks_count);
+      d3.select("#issues").text(": "+d.open_issues_count);
+      d3.select("#watchers").text(": "+d.subscribers_count);
+      d3.select("#stars").text(": "+d.stargazers_count);
+      d3.select("#forks").text(": "+d.forks_count);
 
-      }
+    }
 
-    });
   });
 
 </script>

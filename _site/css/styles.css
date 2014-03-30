@@ -98,6 +98,10 @@ header a.active {
   text-decoration: none;
 }
 
+p.example {
+  padding: 0px 20px;
+}
+
 a.example {
   background-color: #b35c1e;
   border: 1px solid #b35c1e;
@@ -107,6 +111,7 @@ a.example {
   margin: 0px 0px 20px 37px;
   padding: 0px;
   position: relative;
+  text-align: left;
   -webkit-transition: box-shadow .1s;
           transition: box-shadow .1s;
   vertical-align: top;
@@ -123,17 +128,22 @@ a.example img {
   width: 150px;
 }
 
-a.example div {
+a.example div.title {
   background-color: rgba(179,92,30,0.75);
   bottom: 0px;
   color: #f7f7f7;
   font-size: 12px;
   padding: 3px 5px;
   position: absolute;
-  text-align: left;
   -webkit-transition: background-color .1s;
           transition: background-color .1s;
   width: 140px;
+}
+
+a.example div.date {
+  color: #aaa;
+  font-size: 10px;
+  padding: 3px 5px;
 }
 
 a.example:hover {
@@ -144,7 +154,7 @@ a.example:hover img {
   opacity: 1;
 }
 
-a.example:hover div {
+a.example:hover div.title {
   background-color: rgba(179,92,30,0.9);
 }
 
