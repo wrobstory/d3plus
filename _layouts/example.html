@@ -3,7 +3,8 @@ layout: default
 ---
 
 {% assign url = page.url|split:'/' %}
-{% assign gist = url[3] %}
+{% assign file = url[3]|split: '.' %}
+{% assign gist = file[0] %}
 
 <section>
   <h2></h2>

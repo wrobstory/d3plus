@@ -30,10 +30,10 @@ users:
   var examples = {}
   {% for p in site.pages %}
     var url = "{{ p.url }}".split("/")
-    if (url.length == 5 && url[1] == "examples") {
-      var category = url[2], gist = url[3]
+    if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
-      examples[category].push(url[3])
+      examples[category].push(gist)
     }
   {% endfor %}
 
