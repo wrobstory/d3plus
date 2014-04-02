@@ -1,5 +1,7 @@
 name: D3plus
 
+markdown: kramdown
+
 gems:
 - jekyll-redirect-from
 
