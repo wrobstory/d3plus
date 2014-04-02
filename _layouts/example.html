@@ -4,10 +4,22 @@ layout: default
 
 {% assign url = page.url|split:'/' %}
 {% assign file = url[3]|split: '.' %}
-{% assign gist = file[0] %}
+{% assign id = file[0] %}
+
+{% if page.user == null %}
+  {% assign user = 'davelandry' %}
+{% else %}
+  {% assign user = page.user %}
+{% endif %}
 
 <section>
-  <h2></h2>
+  <h2>{{ id }}</h2>
+  <a class="button right" href="http://bl.ocks.org/{{user}}/raw/{{id}}/" target="_blank">
+    View Standalone <i class='fa fa-angle-right'></i>
+  </a>
+  <p class="example"></p>
+  <iframe src="http://bl.ocks.org/{{user}}/raw/{{id}}/" width="990" height="640"></iframe>
+  <script src="https://gist.github.com/{{user}}/{{id}}.js?file=index.html"></script>
 </section>
 
 <script src="/js/d3.js"></script>
@@ -15,12 +27,7 @@ layout: default
 
 <script>
 
-  var id = {{ gist }}
-
-  function adjustIframeSize(newHeight) {
-    var i = document.getElementById("gistFrame");
-    i.style.height = parseInt(newHeight) + "px";
-  }
+  var id = {{ id }}
 
   d3.json("https://api.github.com/gists/"+id,function(error,gist){
 
@@ -49,46 +56,9 @@ layout: default
         var converter = new Showdown.converter(),
             html = converter.makeHtml(md)
 
-        section.append("p").attr("class","example").html(html)
+        section.select("p").html(html)
 
       }
-
-      var block = "http://bl.ocks.org/"+gist.user.login+"/raw/"+id+"/"+gist.history[0].version+"/"
-
-      section.append("a")
-        .attr("class","button right")
-        .attr("href",block)
-        .attr("target","_blank")
-        .html("View Standalone <i class='fa fa-angle-right'></i>")
-
-      section.append("iframe")
-        .attr("class","example")
-        .attr("width","960")
-        .attr("height","640")
-        .attr("src",block)
-
-      var code = "https://gist.github.com/"+gist.user.login+"/"+id+".js?file=index.html"
-
-      var gistFrame = section.append("iframe")
-        .attr("id","gistFrame")
-        .attr("class","example")
-        .attr("width","960").node()
-
-      // Create the iframe's document
-      var gistFrameHTML = '<html><body onload="parent.adjustIframeSize(document.body.scrollHeight)"><scr' + 'ipt type="text/javascript" src="' + code + '"></sc'+'ript></body></html>';
-
-      // Set iframe's document with a trigger for this document to adjust the height
-      var gistFrameDoc = gistFrame.document;
-
-      if (gistFrame.contentDocument) {
-        gistFrameDoc = gistFrame.contentDocument;
-      } else if (gistFrame.contentWindow) {
-        gistFrameDoc = gistFrame.contentWindow.document;
-      }
-
-      gistFrameDoc.open();
-      gistFrameDoc.writeln(gistFrameHTML);
-      gistFrameDoc.close();
 
     }
 

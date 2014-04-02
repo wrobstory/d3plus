@@ -64,359 +64,563 @@
     "geo_map": "Geo Map"
   }
 
-  var examples = {}
+  var examples = {}, users = []
   
-    var url = "/examples/geo_map/9042807/index.html".split("/")
+    var url = "/examples/geo_map/9042807/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/index.html".split("/")
+    var url = "/examples/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/line/9037371/index.html".split("/")
+    var url = "/examples/line/9037371/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/line/9862486/index.html".split("/")
+    var url = "/examples/line/9862486/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/network/9042919/index.html".split("/")
+    var url = "/examples/network/9042919/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/rings/9034389/index.html".split("/")
+    var url = "/examples/rings/9034389/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/scatter/9029781/index.html".split("/")
+    var url = "/examples/scatter/9029781/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/scatter/9861345/index.html".split("/")
+    var url = "/examples/scatter/9861345/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/stacked/9029462/index.html".split("/")
+    var url = "/examples/stacked/9029462/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/tree_map/9029130/index.html".split("/")
+    var url = "/examples/tree_map/9029130/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/tree_map/9860411/index.html".split("/")
+    var url = "/examples/tree_map/9860411/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/tree_map/9860719/index.html".split("/")
+    var url = "/examples/tree_map/9860719/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/tree_map/9860999/index.html".split("/")
+    var url = "/examples/tree_map/9860999/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/index.html".split("/")
+    var url = "/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/03_19_2014/customizing/index.html".split("/")
+    var url = "/workshops/03_19_2014/customizing/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/03_19_2014/download/index.html".split("/")
+    var url = "/workshops/03_19_2014/download/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/03_19_2014/edges/index.html".split("/")
+    var url = "/workshops/03_19_2014/edges/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/03_19_2014/env/index.html".split("/")
+    var url = "/workshops/03_19_2014/env/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/03_19_2014/intro/index.html".split("/")
+    var url = "/workshops/03_19_2014/intro/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/03_19_2014/rings/index.html".split("/")
+    var url = "/workshops/03_19_2014/rings/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/03_19_2014/tree_map/index.html".split("/")
+    var url = "/workshops/03_19_2014/tree_map/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/03_19_2014/viz/index.html".split("/")
+    var url = "/workshops/03_19_2014/viz/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/03_19_2014/your_data/index.html".split("/")
+    var url = "/workshops/03_19_2014/your_data/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_19_2013/d3js/index.html".split("/")
+    var url = "/workshops/11_19_2013/d3js/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_19_2013/d3plus/index.html".split("/")
+    var url = "/workshops/11_19_2013/d3plus/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_19_2013/future/index.html".split("/")
+    var url = "/workshops/11_19_2013/future/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_19_2013/intro/index.html".split("/")
+    var url = "/workshops/11_19_2013/intro/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_19_2013/network/index.html".split("/")
+    var url = "/workshops/11_19_2013/network/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_19_2013/pie_scatter/index.html".split("/")
+    var url = "/workshops/11_19_2013/pie_scatter/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_19_2013/rings/index.html".split("/")
+    var url = "/workshops/11_19_2013/rings/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_19_2013/stacked/index.html".split("/")
+    var url = "/workshops/11_19_2013/stacked/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_19_2013/tree_map/index.html".split("/")
+    var url = "/workshops/11_19_2013/tree_map/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_29_2013/d3js/index.html".split("/")
+    var url = "/workshops/11_29_2013/d3js/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_29_2013/d3plus/index.html".split("/")
+    var url = "/workshops/11_29_2013/d3plus/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_29_2013/future/index.html".split("/")
+    var url = "/workshops/11_29_2013/future/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_29_2013/intro/index.html".split("/")
+    var url = "/workshops/11_29_2013/intro/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_29_2013/network/index.html".split("/")
+    var url = "/workshops/11_29_2013/network/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_29_2013/pie_scatter/index.html".split("/")
+    var url = "/workshops/11_29_2013/pie_scatter/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_29_2013/rings/index.html".split("/")
+    var url = "/workshops/11_29_2013/rings/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_29_2013/stacked/index.html".split("/")
+    var url = "/workshops/11_29_2013/stacked/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_29_2013/started/index.html".split("/")
+    var url = "/workshops/11_29_2013/started/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_29_2013/svg/index.html".split("/")
+    var url = "/workshops/11_29_2013/svg/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/11_29_2013/tree_map/index.html".split("/")
+    var url = "/workshops/11_29_2013/tree_map/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/workshops/index.html".split("/")
+    var url = "/workshops/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/geo_map/simple/".split("/")
+    var url = "/examples/geo_map/simple/".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/line/simple/".split("/")
+    var url = "/examples/line/simple/".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/network/simple/".split("/")
+    var url = "/examples/network/simple/".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/tree_map/rings/".split("/")
+    var url = "/examples/tree_map/rings/".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/tree_map/scatter/".split("/")
+    var url = "/examples/tree_map/scatter/".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/stacked/simple/".split("/")
+    var url = "/examples/stacked/simple/".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
       examples[category].push(gist)
     }
   
-    var url = "/examples/tree_map/simple/".split("/")
+    var url = "/examples/tree_map/simple/".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
@@ -424,10 +628,14 @@
     }
   
 
+  if (users.indexOf("davelandry") < 0) {
+    users.push("davelandry")
+  }
+  
   var q = queue()
-  
-    q.defer(d3.json,"https://api.github.com/users/davelandry/gists?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067")
-  
+  users.forEach(function(user){
+    q.defer(d3.json,"https://api.github.com/users/"+user+"/gists?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067")
+  })
   q.awaitAll(function(error,data){
 
     if (error || data.length == 0) {

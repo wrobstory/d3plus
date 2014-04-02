@@ -1,8 +1,6 @@
 ---
 layout: default
 title: Examples
-users:
-- davelandry
 ---
 
 <section>
@@ -27,9 +25,13 @@ users:
     "geo_map": "Geo Map"
   }
 
-  var examples = {}
+  var examples = {}, users = []
   {% for p in site.pages %}
-    var url = "{{ p.url }}".split("/")
+    var url = "{{ p.url }}".split("/"),
+        user = "{{p.user}}"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
     if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
       var category = url[2], gist = url[3].split(".")[0]
       if (!examples[category]) examples[category] = []
@@ -37,10 +39,14 @@ users:
     }
   {% endfor %}
 
+  if (users.indexOf("davelandry") < 0) {
+    users.push("davelandry")
+  }
+  
   var q = queue()
-  {% for user in page.users %}
-    q.defer(d3.json,"https://api.github.com/users/{{user}}/gists?client_id={{site.github.id}}&client_secret={{site.github.secret}}")
-  {% endfor %}
+  users.forEach(function(user){
+    q.defer(d3.json,"https://api.github.com/users/"+user+"/gists?client_id={{site.github.id}}&client_secret={{site.github.secret}}")
+  })
   q.awaitAll(function(error,data){
 
     if (error || data.length == 0) {
