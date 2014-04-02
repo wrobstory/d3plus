@@ -207,15 +207,21 @@
 
       var section = d3.select("section#examples")
 
+      var delay = 0
       function enter(elem) {
 
         elem.style("opacity",0)
-          .transition().duration(300)
+          .transition().duration(400).delay(delay)
           .style("opacity",1)
+
+        delay += 30
 
       }
 
       
+
+        
+        
 
         var gist = gists[9029130]
 
@@ -228,12 +234,12 @@
 
           var button = section.append("a")
             .attr("class","example")
-            .attr("href","/examples/?9029130")
+            .attr("href","/examples/tree_map/9029130/")
             .call(enter)
 
           button.append("img")
             .attr("src",image)
-            .attr("alt","9029130")
+            .attr("alt","tree_map/9029130")
 
           button.append("div")
             .attr("class","title")
@@ -246,6 +252,9 @@
         }
 
       
+
+        
+        
 
         var gist = gists[9029781]
 
@@ -258,12 +267,12 @@
 
           var button = section.append("a")
             .attr("class","example")
-            .attr("href","/examples/?9029781")
+            .attr("href","/examples/scatter/9029781/")
             .call(enter)
 
           button.append("img")
             .attr("src",image)
-            .attr("alt","9029781")
+            .attr("alt","scatter/9029781")
 
           button.append("div")
             .attr("class","title")
@@ -276,6 +285,9 @@
         }
 
       
+
+        
+        
 
         var gist = gists[9037371]
 
@@ -288,12 +300,12 @@
 
           var button = section.append("a")
             .attr("class","example")
-            .attr("href","/examples/?9037371")
+            .attr("href","/examples/line/9037371/")
             .call(enter)
 
           button.append("img")
             .attr("src",image)
-            .attr("alt","9037371")
+            .attr("alt","line/9037371")
 
           button.append("div")
             .attr("class","title")
@@ -306,6 +318,9 @@
         }
 
       
+
+        
+        
 
         var gist = gists[9029462]
 
@@ -318,12 +333,12 @@
 
           var button = section.append("a")
             .attr("class","example")
-            .attr("href","/examples/?9029462")
+            .attr("href","/examples/stacked/9029462/")
             .call(enter)
 
           button.append("img")
             .attr("src",image)
-            .attr("alt","9029462")
+            .attr("alt","stacked/9029462")
 
           button.append("div")
             .attr("class","title")
@@ -336,6 +351,9 @@
         }
 
       
+
+        
+        
 
         var gist = gists[9042807]
 
@@ -348,12 +366,12 @@
 
           var button = section.append("a")
             .attr("class","example")
-            .attr("href","/examples/?9042807")
+            .attr("href","/examples/geo_map/9042807/")
             .call(enter)
 
           button.append("img")
             .attr("src",image)
-            .attr("alt","9042807")
+            .attr("alt","geo_map/9042807")
 
           button.append("div")
             .attr("class","title")
@@ -366,6 +384,9 @@
         }
 
       
+
+        
+        
 
         var gist = gists[9042919]
 
@@ -378,12 +399,12 @@
 
           var button = section.append("a")
             .attr("class","example")
-            .attr("href","/examples/?9042919")
+            .attr("href","/examples/network/9042919/")
             .call(enter)
 
           button.append("img")
             .attr("src",image)
-            .attr("alt","9042919")
+            .attr("alt","network/9042919")
 
           button.append("div")
             .attr("class","title")
@@ -397,6 +418,9 @@
 
       
 
+        
+        
+
         var gist = gists[9034389]
 
         if (gist) {
@@ -408,12 +432,45 @@
 
           var button = section.append("a")
             .attr("class","example")
-            .attr("href","/examples/?9034389")
+            .attr("href","/examples/rings/9034389/")
             .call(enter)
 
           button.append("img")
             .attr("src",image)
-            .attr("alt","9034389")
+            .attr("alt","rings/9034389")
+
+          button.append("div")
+            .attr("class","title")
+            .text(title)
+
+          button.append("div")
+            .attr("class","date")
+            .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+
+        }
+
+      
+
+        
+        
+
+        var gist = gists[9860999]
+
+        if (gist) {
+
+          var title = gist.description || gist.id,
+              image = gist.files["thumbnail.png"]
+                ? gist.files["thumbnail.png"].raw_url
+                : "/assets/img/thumbnail.png"
+
+          var button = section.append("a")
+            .attr("class","example")
+            .attr("href","/examples/tree_map/9860999/")
+            .call(enter)
+
+          button.append("img")
+            .attr("src",image)
+            .attr("alt","tree_map/9860999")
 
           button.append("div")
             .attr("class","title")

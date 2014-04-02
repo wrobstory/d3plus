@@ -2,12 +2,95 @@
 layout: default
 ---
 
+{% assign url = page.url|split:'/' %}
+{% assign gist = url[3] %}
+
 <section>
-  <h2>{{ page.title }}</h2>
-  <p>
-    {{ page.description }}
-  </p>
-  <a class="button right" href="http://bl.ocks.org/{{ page.user }}/raw/{{ page.gist }}/" target="_blank">View standalone <i class="fa fa-angle-right"></i></a>
-  <iframe class="example" src="http://bl.ocks.org/{{ page.user }}/raw/{{ page.gist }}/" width="960" height="640"></iframe>
-  <script src="https://gist.github.com/{{ page.user }}/{{ page.gist }}.js?file=index.html"></script>
+  <h2></h2>
 </section>
+
+<script src="/js/d3.js"></script>
+<script src="/js/showdown.js"></script>
+
+<script>
+
+  var id = {{ gist }}
+
+  function adjustIframeSize(newHeight) {
+    var i = document.getElementById("gistFrame");
+    i.style.height = parseInt(newHeight) + "px";
+  }
+
+  d3.json("https://api.github.com/gists/"+id,function(error,gist){
+
+    if (error || gist.length == 0) {
+
+      d3.select("section h2").text("Error loading example.")
+
+    }
+    else {
+
+      var section = d3.select("section")
+
+      var title = gist.description || id
+
+      document.title = title +" with D3plus"
+
+      section.select("h2").text(title)
+
+      var readme = gist.files["README.md"]
+      if (readme) {
+
+        var md = readme.content.replace(/\n\nFeatured on \[D3plus\.org\]\(http\:\/\/www\.d3plus\.org\/\)/g,"")
+        md = md.replace(/\nFeatured on \[D3plus\.org\]\(http\:\/\/www\.d3plus\.org\/\)/g,"")
+        md = md.replace(/Featured on \[D3plus\.org\]\(http\:\/\/www\.d3plus\.org\/\)/g,"")
+
+        var converter = new Showdown.converter(),
+            html = converter.makeHtml(md)
+
+        section.append("p").attr("class","example").html(html)
+
+      }
+
+      var block = "http://bl.ocks.org/"+gist.user.login+"/raw/"+id+"/"+gist.history[0].version+"/"
+
+      section.append("a")
+        .attr("class","button right")
+        .attr("href",block)
+        .attr("target","_blank")
+        .html("View Standalone <i class='fa fa-angle-right'></i>")
+
+      section.append("iframe")
+        .attr("class","example")
+        .attr("width","960")
+        .attr("height","640")
+        .attr("src",block)
+
+      var code = "https://gist.github.com/"+gist.user.login+"/"+id+".js?file=index.html"
+
+      var gistFrame = section.append("iframe")
+        .attr("id","gistFrame")
+        .attr("class","example")
+        .attr("width","960").node()
+
+      // Create the iframe's document
+      var gistFrameHTML = '<html><body onload="parent.adjustIframeSize(document.body.scrollHeight)"><scr' + 'ipt type="text/javascript" src="' + code + '"></sc'+'ript></body></html>';
+
+      // Set iframe's document with a trigger for this document to adjust the height
+      var gistFrameDoc = gistFrame.document;
+
+      if (gistFrame.contentDocument) {
+        gistFrameDoc = gistFrame.contentDocument;
+      } else if (gistFrame.contentWindow) {
+        gistFrameDoc = gistFrame.contentWindow.document;
+      }
+
+      gistFrameDoc.open();
+      gistFrameDoc.writeln(gistFrameHTML);
+      gistFrameDoc.close();
+
+    }
+
+  })
+
+</script>

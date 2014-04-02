@@ -52,547 +52,456 @@
 
 <script>
 
-  var id = location.search.substr(1)
+  var order = ["tree_map","scatter","stacked","line","network","rings","geo_map"]
 
-  function adjustIframeSize(newHeight) {
-    var i = document.getElementById("gistFrame");
-    i.style.height = parseInt(newHeight) + "px";
+  var titles = {
+    "tree_map": "Tree Map",
+    "scatter": "Scatterplot",
+    "stacked": "Stacked Area",
+    "line": "Line Plot",
+    "network": "Network",
+    "rings": "Rings",
+    "geo_map": "Geo Map"
   }
 
-  if (id) {
+  var examples = {}
+  
+    var url = "/examples/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/03_19_2014/customizing/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/03_19_2014/download/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/03_19_2014/edges/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/03_19_2014/env/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/03_19_2014/intro/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/03_19_2014/rings/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/03_19_2014/tree_map/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/03_19_2014/viz/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/03_19_2014/your_data/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_19_2013/d3js/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_19_2013/d3plus/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_19_2013/future/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_19_2013/intro/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_19_2013/network/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_19_2013/pie_scatter/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_19_2013/rings/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_19_2013/stacked/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_19_2013/tree_map/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_29_2013/d3js/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_29_2013/d3plus/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_29_2013/future/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_29_2013/intro/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_29_2013/network/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_29_2013/pie_scatter/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_29_2013/rings/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_29_2013/stacked/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_29_2013/started/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_29_2013/svg/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/11_29_2013/tree_map/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/workshops/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/geo_map/9042807/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/line/9037371/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/line/9862486/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/network/9042919/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/rings/9034389/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/scatter/9029781/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/scatter/9861345/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/stacked/9029462/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/tree_map/9029130/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/tree_map/9860411/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/tree_map/9860719/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/tree_map/9860999/index.html".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/geo_map/simple/".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/line/simple/".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/network/simple/".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/tree_map/rings/".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/tree_map/scatter/".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/stacked/simple/".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
+    var url = "/examples/tree_map/simple/".split("/")
+    if (url.length == 5 && url[1] == "examples") {
+      var category = url[2], gist = url[3]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(url[3])
+    }
+  
 
-    d3.json("https://api.github.com/gists/"+id,function(error,gist){
+  var q = queue()
+  
+    q.defer(d3.json,"https://api.github.com/users/davelandry/gists?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067")
+  
+  q.awaitAll(function(error,data){
 
-      if (error || gist.length == 0) {
+    if (error || data.length == 0) {
 
-        d3.select("section h2").text("Error loading example.")
+      d3.select("section h2").text("Error loading examples.")
+
+    }
+    else {
+
+      var merged = []
+      merged = merged.concat.apply(merged,data).filter(function(g){
+        return g.public
+      })
+
+      var gists = {}
+      merged.forEach(function(m){
+        gists[m.id] = m
+      })
+
+      d3.select("section").remove()
+
+      function enter(elem) {
+
+        elem.style("opacity",0)
+          .transition().duration(400).delay(delay)
+          .style("opacity",1)
+
+        delay += 30
 
       }
-      else {
 
-        var section = d3.select("section")
+      var delay = 0
+      order.forEach(function(type){
 
-        var title = gist.description || id
+        var section = d3.select("#content").append("section")
+        section.append("h2").text(titles[type])
+          .call(enter)
 
-        document.title = title +" with D3plus"
+        examples[type].forEach(function(g) {
 
-        section.select("h2").text(title)
+          var gist = gists[g]
 
-        var readme = gist.files["README.md"]
-        if (readme) {
+          if (gist) {
 
-          var md = readme.content.replace(/\n\nFeatured on \[D3plus\.org\]\(http\:\/\/www\.d3plus\.org\/\)/g,"")
-          md = md.replace(/\nFeatured on \[D3plus\.org\]\(http\:\/\/www\.d3plus\.org\/\)/g,"")
-          md = md.replace(/Featured on \[D3plus\.org\]\(http\:\/\/www\.d3plus\.org\/\)/g,"")
+            var title = gist.description || gist.id,
+                image = gist.files["thumbnail.png"]
+                  ? gist.files["thumbnail.png"].raw_url
+                  : "/assets/img/thumbnail.png"
 
-          var converter = new Showdown.converter(),
-              html = converter.makeHtml(md)
+            var button = section.append("a")
+              .attr("class","example")
+              .attr("href",type+"/"+g)
+              .call(enter)
 
-          section.append("p").attr("class","example").html(html)
+            button.append("img")
+              .attr("src",image)
+              .attr("alt",title)
 
-        }
+            button.append("div")
+              .attr("class","title")
+              .text(title)
 
-        var block = "http://bl.ocks.org/"+gist.user.login+"/raw/"+id+"/"+gist.history[0].version+"/"
+            button.append("div")
+              .attr("class","date")
+              .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
 
-        section.append("a")
-          .attr("class","button right")
-          .attr("href",block)
-          .attr("target","_blank")
-          .html("View Standalone <i class='fa fa-angle-right'></i>")
+          }
 
-        section.append("iframe")
-          .attr("class","example")
-          .attr("width","960")
-          .attr("height","640")
-          .attr("src",block)
-
-        var code = "https://gist.github.com/"+gist.user.login+"/"+id+".js?file=index.html"
-
-        var gistFrame = section.append("iframe")
-          .attr("id","gistFrame")
-          .attr("class","example")
-          .attr("width","960").node()
-
-  			// Create the iframe's document
-  			var gistFrameHTML = '<html><body onload="parent.adjustIframeSize(document.body.scrollHeight)"><scr' + 'ipt type="text/javascript" src="' + code + '"></sc'+'ript></body></html>';
-
-  			// Set iframe's document with a trigger for this document to adjust the height
-  			var gistFrameDoc = gistFrame.document;
-
-  			if (gistFrame.contentDocument) {
-  				gistFrameDoc = gistFrame.contentDocument;
-  			} else if (gistFrame.contentWindow) {
-  				gistFrameDoc = gistFrame.contentWindow.document;
-  			}
-
-  			gistFrameDoc.open();
-  			gistFrameDoc.writeln(gistFrameHTML);
-  			gistFrameDoc.close();
-
-      }
-
-    })
-
-  }
-  else {
-
-    var q = queue()
-    
-      q.defer(d3.json,"https://api.github.com/users/davelandry/gists?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067")
-    
-      q.defer(d3.json,"https://api.github.com/users/alexandersimoes/gists?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067")
-    
-    q.awaitAll(function(error,data){
-
-      if (error || data.length == 0) {
-
-        d3.select("section h2").text("Error loading examples.")
-
-      }
-      else {
-
-        var merged = []
-        merged = merged.concat.apply(merged,data).filter(function(g){
-          return g.public
         })
 
-        var gists = {}
-        merged.forEach(function(m){
-          gists[m.id] = m
-        })
+      })
 
-        d3.select("section").remove()
-
-        function enter(elem) {
-
-          elem.style("opacity",0)
-            .transition().duration(300)
-            .style("opacity",1)
-
-        }
-
-        
-
-          var section = d3.select("#content").append("section")
-          section.append("h2").text("Tree Map")
-            .call(enter)
-
-          
-
-            var gist = gists[9029130]
-
-            if (gist) {
-
-              var title = gist.description || gist.id,
-                  image = gist.files["thumbnail.png"]
-                    ? gist.files["thumbnail.png"].raw_url
-                    : "/assets/img/thumbnail.png"
-
-              var button = section.append("a")
-                .attr("class","example")
-                .attr("href","?9029130")
-                .call(enter)
-
-              button.append("img")
-                .attr("src",image)
-                .attr("alt","9029130")
-
-              button.append("div")
-                .attr("class","title")
-                .text(title)
-
-              button.append("div")
-                .attr("class","date")
-                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
-
-            }
-
-          
-
-            var gist = gists[9860719]
-
-            if (gist) {
-
-              var title = gist.description || gist.id,
-                  image = gist.files["thumbnail.png"]
-                    ? gist.files["thumbnail.png"].raw_url
-                    : "/assets/img/thumbnail.png"
-
-              var button = section.append("a")
-                .attr("class","example")
-                .attr("href","?9860719")
-                .call(enter)
-
-              button.append("img")
-                .attr("src",image)
-                .attr("alt","9860719")
-
-              button.append("div")
-                .attr("class","title")
-                .text(title)
-
-              button.append("div")
-                .attr("class","date")
-                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
-
-            }
-
-          
-
-            var gist = gists[9860411]
-
-            if (gist) {
-
-              var title = gist.description || gist.id,
-                  image = gist.files["thumbnail.png"]
-                    ? gist.files["thumbnail.png"].raw_url
-                    : "/assets/img/thumbnail.png"
-
-              var button = section.append("a")
-                .attr("class","example")
-                .attr("href","?9860411")
-                .call(enter)
-
-              button.append("img")
-                .attr("src",image)
-                .attr("alt","9860411")
-
-              button.append("div")
-                .attr("class","title")
-                .text(title)
-
-              button.append("div")
-                .attr("class","date")
-                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
-
-            }
-
-          
-
-            var gist = gists[9860999]
-
-            if (gist) {
-
-              var title = gist.description || gist.id,
-                  image = gist.files["thumbnail.png"]
-                    ? gist.files["thumbnail.png"].raw_url
-                    : "/assets/img/thumbnail.png"
-
-              var button = section.append("a")
-                .attr("class","example")
-                .attr("href","?9860999")
-                .call(enter)
-
-              button.append("img")
-                .attr("src",image)
-                .attr("alt","9860999")
-
-              button.append("div")
-                .attr("class","title")
-                .text(title)
-
-              button.append("div")
-                .attr("class","date")
-                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
-
-            }
-
-          
-
-        
-
-          var section = d3.select("#content").append("section")
-          section.append("h2").text("Scatter")
-            .call(enter)
-
-          
-
-            var gist = gists[9029781]
-
-            if (gist) {
-
-              var title = gist.description || gist.id,
-                  image = gist.files["thumbnail.png"]
-                    ? gist.files["thumbnail.png"].raw_url
-                    : "/assets/img/thumbnail.png"
-
-              var button = section.append("a")
-                .attr("class","example")
-                .attr("href","?9029781")
-                .call(enter)
-
-              button.append("img")
-                .attr("src",image)
-                .attr("alt","9029781")
-
-              button.append("div")
-                .attr("class","title")
-                .text(title)
-
-              button.append("div")
-                .attr("class","date")
-                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
-
-            }
-
-          
-
-            var gist = gists[9861345]
-
-            if (gist) {
-
-              var title = gist.description || gist.id,
-                  image = gist.files["thumbnail.png"]
-                    ? gist.files["thumbnail.png"].raw_url
-                    : "/assets/img/thumbnail.png"
-
-              var button = section.append("a")
-                .attr("class","example")
-                .attr("href","?9861345")
-                .call(enter)
-
-              button.append("img")
-                .attr("src",image)
-                .attr("alt","9861345")
-
-              button.append("div")
-                .attr("class","title")
-                .text(title)
-
-              button.append("div")
-                .attr("class","date")
-                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
-
-            }
-
-          
-
-        
-
-          var section = d3.select("#content").append("section")
-          section.append("h2").text("Line Chart")
-            .call(enter)
-
-          
-
-            var gist = gists[9037371]
-
-            if (gist) {
-
-              var title = gist.description || gist.id,
-                  image = gist.files["thumbnail.png"]
-                    ? gist.files["thumbnail.png"].raw_url
-                    : "/assets/img/thumbnail.png"
-
-              var button = section.append("a")
-                .attr("class","example")
-                .attr("href","?9037371")
-                .call(enter)
-
-              button.append("img")
-                .attr("src",image)
-                .attr("alt","9037371")
-
-              button.append("div")
-                .attr("class","title")
-                .text(title)
-
-              button.append("div")
-                .attr("class","date")
-                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
-
-            }
-
-          
-
-            var gist = gists[9862486]
-
-            if (gist) {
-
-              var title = gist.description || gist.id,
-                  image = gist.files["thumbnail.png"]
-                    ? gist.files["thumbnail.png"].raw_url
-                    : "/assets/img/thumbnail.png"
-
-              var button = section.append("a")
-                .attr("class","example")
-                .attr("href","?9862486")
-                .call(enter)
-
-              button.append("img")
-                .attr("src",image)
-                .attr("alt","9862486")
-
-              button.append("div")
-                .attr("class","title")
-                .text(title)
-
-              button.append("div")
-                .attr("class","date")
-                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
-
-            }
-
-          
-
-        
-
-          var section = d3.select("#content").append("section")
-          section.append("h2").text("Stacked Area Chart")
-            .call(enter)
-
-          
-
-            var gist = gists[9029462]
-
-            if (gist) {
-
-              var title = gist.description || gist.id,
-                  image = gist.files["thumbnail.png"]
-                    ? gist.files["thumbnail.png"].raw_url
-                    : "/assets/img/thumbnail.png"
-
-              var button = section.append("a")
-                .attr("class","example")
-                .attr("href","?9029462")
-                .call(enter)
-
-              button.append("img")
-                .attr("src",image)
-                .attr("alt","9029462")
-
-              button.append("div")
-                .attr("class","title")
-                .text(title)
-
-              button.append("div")
-                .attr("class","date")
-                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
-
-            }
-
-          
-
-        
-
-          var section = d3.select("#content").append("section")
-          section.append("h2").text("Network")
-            .call(enter)
-
-          
-
-            var gist = gists[9042919]
-
-            if (gist) {
-
-              var title = gist.description || gist.id,
-                  image = gist.files["thumbnail.png"]
-                    ? gist.files["thumbnail.png"].raw_url
-                    : "/assets/img/thumbnail.png"
-
-              var button = section.append("a")
-                .attr("class","example")
-                .attr("href","?9042919")
-                .call(enter)
-
-              button.append("img")
-                .attr("src",image)
-                .attr("alt","9042919")
-
-              button.append("div")
-                .attr("class","title")
-                .text(title)
-
-              button.append("div")
-                .attr("class","date")
-                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
-
-            }
-
-          
-
-        
-
-          var section = d3.select("#content").append("section")
-          section.append("h2").text("Rings")
-            .call(enter)
-
-          
-
-            var gist = gists[9034389]
-
-            if (gist) {
-
-              var title = gist.description || gist.id,
-                  image = gist.files["thumbnail.png"]
-                    ? gist.files["thumbnail.png"].raw_url
-                    : "/assets/img/thumbnail.png"
-
-              var button = section.append("a")
-                .attr("class","example")
-                .attr("href","?9034389")
-                .call(enter)
-
-              button.append("img")
-                .attr("src",image)
-                .attr("alt","9034389")
-
-              button.append("div")
-                .attr("class","title")
-                .text(title)
-
-              button.append("div")
-                .attr("class","date")
-                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
-
-            }
-
-          
-
-        
-
-          var section = d3.select("#content").append("section")
-          section.append("h2").text("Geo Map")
-            .call(enter)
-
-          
-
-            var gist = gists[9042807]
-
-            if (gist) {
-
-              var title = gist.description || gist.id,
-                  image = gist.files["thumbnail.png"]
-                    ? gist.files["thumbnail.png"].raw_url
-                    : "/assets/img/thumbnail.png"
-
-              var button = section.append("a")
-                .attr("class","example")
-                .attr("href","?9042807")
-                .call(enter)
-
-              button.append("img")
-                .attr("src",image)
-                .attr("alt","9042807")
-
-              button.append("div")
-                .attr("class","title")
-                .text(title)
-
-              button.append("div")
-                .attr("class","date")
-                .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
-
-            }
-
-          
-
-        
-
-      }
-    })
-
-  }
+    }
+  })
 
 </script>
 

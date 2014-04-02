@@ -1,4 +1,8 @@
-name: D3plus
+name: D3plus
+
+gems:
+- jekyll-redirect-from
+
 navigation:
 - text: Examples
   url: /examples/

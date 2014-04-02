@@ -4,13 +4,14 @@ users:
 - davelandry
 - alexandersimoes
 examples:
-  - 9029130
-  - 9029781
-  - 9037371
-  - 9029462
-  - 9042807
-  - 9042919
-  - 9034389
+  - tree_map/9029130
+  - scatter/9029781
+  - line/9037371
+  - stacked/9029462
+  - geo_map/9042807
+  - network/9042919
+  - rings/9034389
+  - tree_map/9860999
 ---
 
 <style>
@@ -176,17 +177,23 @@ examples:
 
       var section = d3.select("section#examples")
 
+      var delay = 0
       function enter(elem) {
 
         elem.style("opacity",0)
-          .transition().duration(300)
+          .transition().duration(400).delay(delay)
           .style("opacity",1)
+
+        delay += 30
 
       }
 
       {% for gist in page.examples %}
 
-        var gist = gists[{{gist}}]
+        {% assign s = gist|split:"/" %}
+        {% assign id = s[1] %}
+
+        var gist = gists[{{id}}]
 
         if (gist) {
 
@@ -197,7 +204,7 @@ examples:
 
           var button = section.append("a")
             .attr("class","example")
-            .attr("href","/examples/?{{gist}}")
+            .attr("href","/examples/{{gist}}/")
             .call(enter)
 
           button.append("img")
