@@ -631,7 +631,7 @@
   if (users.indexOf("davelandry") < 0) {
     users.push("davelandry")
   }
-  
+
   var q = queue()
   users.forEach(function(user){
     q.defer(d3.json,"https://api.github.com/users/"+user+"/gists?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067")
@@ -673,6 +673,10 @@
         var section = d3.select("#content").append("section")
         section.append("h2").text(titles[type])
           .call(enter)
+
+        examples[type].sort(function(a,b){
+          return a - b
+        })
 
         examples[type].forEach(function(g) {
 

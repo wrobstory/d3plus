@@ -42,7 +42,7 @@ title: Examples
   if (users.indexOf("davelandry") < 0) {
     users.push("davelandry")
   }
-  
+
   var q = queue()
   users.forEach(function(user){
     q.defer(d3.json,"https://api.github.com/users/"+user+"/gists?client_id={{site.github.id}}&client_secret={{site.github.secret}}")
@@ -84,6 +84,10 @@ title: Examples
         var section = d3.select("#content").append("section")
         section.append("h2").text(titles[type])
           .call(enter)
+
+        examples[type].sort(function(a,b){
+          return a - b
+        })
 
         examples[type].forEach(function(g) {
 
