@@ -132,6 +132,28 @@
       examples[category].push(gist)
     }
   
+    var url = "/examples/network/9956648/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+    if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2], gist = url[3].split(".")[0]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(gist)
+    }
+  
+    var url = "/examples/network/9956853/index.html".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+    if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2], gist = url[3].split(".")[0]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(gist)
+    }
+  
     var url = "/examples/rings/9034389/index.html".split("/"),
         user = ""
     if (user != "" && users.indexOf(user) < 0) {
@@ -606,6 +628,28 @@
     }
   
     var url = "/examples/line/simple/".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+    if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2], gist = url[3].split(".")[0]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(gist)
+    }
+  
+    var url = "/examples/network/simple/".split("/"),
+        user = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+    if (url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2], gist = url[3].split(".")[0]
+      if (!examples[category]) examples[category] = []
+      examples[category].push(gist)
+    }
+  
+    var url = "/examples/network/simple/".split("/"),
         user = ""
     if (user != "" && users.indexOf(user) < 0) {
       users.push(user)
