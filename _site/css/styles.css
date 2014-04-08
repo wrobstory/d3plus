@@ -235,6 +235,14 @@ footer img {
   margin: 10px 0px 20px;
 }
 
+img.background {
+  height: 145px;
+  opacity: 0.15;
+  position: absolute;
+  top: 65px;
+  width: 990px;
+}
+
 section {
   position: relative;
 }

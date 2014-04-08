@@ -4,6 +4,14 @@ layout: default
 
 <script src="/js/d3.js"></script>
 
+{% if page.image == null %}
+  {% assign image = "mit.png" %}
+{% else %}
+  {% assign image = page.image %}
+{% endif %}
+
+<img class="background" src="/assets/img/backgrounds/{{image}}">
+
 <section class="content">
   {% assign date = page.url|split:'/' %}
   {% assign date = date[2]|prepend:'nav_' %}

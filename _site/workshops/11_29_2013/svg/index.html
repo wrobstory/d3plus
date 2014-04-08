@@ -44,6 +44,12 @@
     <div id="content">
       <script src="/js/d3.js"></script>
 
+
+  
+
+
+<img class="background" src="/assets/img/backgrounds/cidade.png">
+
 <section class="content">
   
   
@@ -92,7 +98,7 @@
     <h3>A Blue Rectangle</h3>
     <div id="rect_ex1">
       <?xml version="1.0"?>
-      <svg width="120" height="120" 
+      <svg width="120" height="120"
            viewPort="0 0 120 120" version="1.1"
            xmlns="http://www.w3.org/2000/svg">
            <rect x="10" y="10" width="100" height="100" fill="#0000ff" />
@@ -113,7 +119,7 @@
     <h3>A Red Rectangle</h3>
     <div id="rect_ex2">
       <?xml version="1.0"?>
-      <svg width="120" height="120" 
+      <svg width="120" height="120"
            viewPort="0 0 120 120" version="1.1"
            xmlns="http://www.w3.org/2000/svg">
            <rect x="10" y="10" width="100" height="100" fill="#0000ff" />
@@ -177,7 +183,7 @@
       .attr("width", 100)
       .attr("height", 100)
       .attr("fill", "#0000ff")
-    
+
     rect.attr("fill", "#00ff00")
     </script>
   </div>
@@ -202,9 +208,9 @@
       .attr("width", 100)
       .attr("height", 100)
       .attr("fill", "#0000ff")
-    
+
     rect.attr("fill", "#00ff00")
-    
+
     var data = [
       {"value":100, "color":"DarkGoldenRod"},
       {"value":70, "color":"DeepSkyBlue"},
@@ -213,18 +219,18 @@
       {"value":5, "color":"Orchid"},
       {"value":1, "color":"PaleGreen"}
     ]
-    
+
     rect = svg.selectAll("rect").data(data)
-    
+
     var enter = rect.enter().append("rect");
-    
+
     enter
       .attr("x", function(d){ return d.value })
       .attr("y", 10)
       .attr("width", function(d){ return d.value })
       .attr("height", function(d){ return d.value })
       .attr("fill", function(d){ return d.color })
-    
+
     </script>
   </div> -->
 </section>
