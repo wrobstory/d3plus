@@ -90,7 +90,8 @@
           })
 
           section.append("h2")
-            .text(title+" Examples").call(enter)
+            .text(title+" Examples")
+            .call(enter)
 
           var section_gists = merged.filter(function(g){
             return g.category == type
