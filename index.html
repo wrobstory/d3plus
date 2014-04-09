@@ -155,7 +155,7 @@ examples:
 <script>
 
   // Get current release
-  d3.json("https://api.github.com/repos/alexandersimoes/d3plus/releases?client_id={{site.github.id}}&client_secret={{site.github.secret}}",function(d){
+  d3.json("https://api.github.com/repos/alexandersimoes/d3plus/releases?client_id={{site.github_api.id}}&client_secret={{site.github_api.secret}}",function(d){
 
     var div = d3.select("#releases").insert("div",".button")
 
@@ -181,7 +181,7 @@ examples:
   });
 
   // Get generic Github stats
-  d3.json("https://api.github.com/repos/alexandersimoes/d3plus?client_id={{site.github.id}}&client_secret={{site.github.secret}}",function(d){
+  d3.json("https://api.github.com/repos/alexandersimoes/d3plus?client_id={{site.github_api.id}}&client_secret={{site.github_api.secret}}",function(d){
 
     if (d) {
 

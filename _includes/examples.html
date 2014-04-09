@@ -46,7 +46,7 @@
   users.forEach(function(user){
     var url = "https://api.github.com/users/"
     url += user
-    url += "/gists?client_id={{site.github.id}}&client_secret={{site.github.secret}}"
+    url += "/gists?client_id={{site.github_api.id}}&client_secret={{site.github_api.secret}}"
     q.defer(d3.json,url)
   })
 

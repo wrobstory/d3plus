@@ -17,7 +17,7 @@ navigation:
 - text: Source
   url: https://github.com/alexandersimoes/d3plus
 
-github:
+github_api:
   id: 85fd2434dd8ebd42c68d
   secret: d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067
 
