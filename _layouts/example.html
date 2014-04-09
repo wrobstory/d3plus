@@ -29,14 +29,9 @@ layout: default
 
   var id = {{ id }}
 
-  d3.json("https://api.github.com/gists/"+id,function(error,gist){
+  d3.json("https://api.github.com/gists/"+id+"?client_id={{site.github_api.id}}&client_secret={{site.github_api.secret}}",function(error,gist){
 
-    if (error || gist.length == 0) {
-
-      d3.select("section h2").text("Error loading example.")
-
-    }
-    else {
+    if (!error || gist.length > 0) {
 
       var section = d3.select("section")
 
