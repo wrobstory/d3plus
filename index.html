@@ -147,84 +147,12 @@ examples:
 
 </section>
 
+{% include examples.html container="examples" limit=8 %}
+
 <script src="/js/d3.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
 <script src="/js/showdown.js"></script>
 <script>
-
-  var q = queue()
-  {% for user in page.users %}
-    q.defer(d3.json,"https://api.github.com/users/{{user}}/gists?client_id={{site.github.id}}&client_secret={{site.github.secret}}")
-  {% endfor %}
-  q.awaitAll(function(error,data){
-
-    if (error || data.length == 0) {
-
-      d3.select("section#examples h2").text("Error loading examples.")
-
-    }
-    else {
-
-      var merged = []
-      merged = merged.concat.apply(merged,data).filter(function(g){
-        return g.public
-      })
-
-      var gists = {}
-      merged.forEach(function(m){
-        gists[m.id] = m
-      })
-
-      var section = d3.select("section#examples")
-
-      var delay = 0
-      function enter(elem) {
-
-        elem.style("opacity",0)
-          .transition().duration(400).delay(delay)
-          .style("opacity",1)
-
-        delay += 30
-
-      }
-
-      {% for gist in page.examples %}
-
-        {% assign s = gist|split:"/" %}
-        {% assign id = s[1] %}
-
-        var gist = gists[{{id}}]
-
-        if (gist) {
-
-          var title = gist.description || gist.id,
-              image = gist.files["thumbnail.png"]
-                ? gist.files["thumbnail.png"].raw_url
-                : "/assets/img/thumbnail.png"
-
-          var button = section.append("a")
-            .attr("class","example")
-            .attr("href","/examples/{{gist}}/")
-            .call(enter)
-
-          button.append("img")
-            .attr("src",image)
-            .attr("alt","{{gist}}")
-
-          button.append("div")
-            .attr("class","title")
-            .text(title)
-
-          button.append("div")
-            .attr("class","date")
-            .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
-
-        }
-
-      {% endfor %}
-
-    }
-  })
 
   // Get current release
   d3.json("https://api.github.com/repos/alexandersimoes/d3plus/releases?client_id={{site.github.id}}&client_secret={{site.github.secret}}",function(d){

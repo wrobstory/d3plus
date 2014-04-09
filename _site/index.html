@@ -177,37 +177,1150 @@
 
 <script src="/js/d3.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
-<script src="/js/showdown.js"></script>
+
 <script>
 
+  if ("examples") {
+    var container = d3.select("#examples")
+  }
+
+  var section = container || d3.select("#content")
+  if (container) {
+    var loading = section.append("h2")
+  }
+  else {
+    var loading = d3.select("#content").append("section").append("h2")
+  }
+  loading.text("Loading...")
+
+  var order = "".split(".")
+
+  var categories = {}
+    , gists = []
+    , users = []
+
+  
+    var url = "/examples/advanced/10211654/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/advanced/10276914/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/advanced/10305148/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/advanced/10309148/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/advanced/9860411/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/advanced/9860719/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/advanced/9860999/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/advanced/9861345/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/advanced/9862486/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/advanced/9874297/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/advanced/9943042/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/advanced/9943413/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/advanced/9956648/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/advanced/9956853/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/basic/9029130/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/basic/9029462/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/basic/9029781/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/basic/9034389/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/basic/9037371/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/basic/9042807/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/basic/9042919/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/index.html".split("/")
+      , user = ""
+      , layout = "default"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/index.html".split("/")
+      , user = ""
+      , layout = "default"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/03_19_2014/customizing/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/03_19_2014/download/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/03_19_2014/edges/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/03_19_2014/env/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/03_19_2014/intro/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/03_19_2014/rings/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/03_19_2014/tree_map/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/03_19_2014/viz/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/03_19_2014/your_data/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_19_2013/d3js/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_19_2013/d3plus/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_19_2013/future/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_19_2013/intro/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_19_2013/network/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_19_2013/pie_scatter/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_19_2013/rings/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_19_2013/stacked/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_19_2013/tree_map/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_29_2013/d3js/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_29_2013/d3plus/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_29_2013/future/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_29_2013/intro/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_29_2013/network/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_29_2013/pie_scatter/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_29_2013/rings/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_29_2013/stacked/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_29_2013/started/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_29_2013/svg/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/11_29_2013/tree_map/index.html".split("/")
+      , user = ""
+      , layout = "workshop"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/workshops/index.html".split("/")
+      , user = ""
+      , layout = "default"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/rings/10211654/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/tree_map/9860411/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/tree_map/9860719/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/tree_map/9860999/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/scatter/9861345/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/line/9862486/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/tree_map/9874297/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/geo_map/9943042/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/stacked/9943413/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/network/9956648/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/network/9956853/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/tree_map/simple/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/tree_map/9029130/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/stacked/simple/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/stacked/9029462/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/scatter/simple/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/scatter/9029781/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/rings/simple/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/rings/9034389/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/line/simple/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/line/9037371/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/geo_map/simple/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/geo_map/9042807/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/network/simple/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/examples/network/9042919/".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+
+  if (users.indexOf("davelandry") < 0) {
+    users.push("davelandry")
+  }
+
   var q = queue()
-  
-    q.defer(d3.json,"https://api.github.com/users/davelandry/gists?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067")
-  
-    q.defer(d3.json,"https://api.github.com/users/alexandersimoes/gists?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067")
-  
+  users.forEach(function(user){
+    var url = "https://api.github.com/users/"
+    url += user
+    url += "/gists?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067"
+    q.defer(d3.json,url)
+  })
+
   q.awaitAll(function(error,data){
 
     if (error || data.length == 0) {
-
-      d3.select("section#examples h2").text("Error loading examples.")
-
+      loading.text("Error loading Examples")
     }
     else {
 
       var merged = []
       merged = merged.concat.apply(merged,data).filter(function(g){
-        return g.public
+        if (g.public && gists.indexOf(g.id) >= 0 && g.id in categories) {
+          g.category = categories[g.id]
+          return true
+        }
+        return false
       })
 
-      var gists = {}
-      merged.forEach(function(m){
-        gists[m.id] = m
-      })
-
-      var section = d3.select("section#examples")
-
-      var delay = 0
       function enter(elem) {
 
         elem.style("opacity",0)
@@ -218,274 +1331,110 @@
 
       }
 
-      
+      loading.remove()
 
-        
-        
+      var delay = 0
+      order.forEach(function(type){
 
-        var gist = gists[9029130]
+        var section = container || d3.select("#content").append("section")
 
-        if (gist) {
+        if (type.length > 0) {
 
-          var title = gist.description || gist.id,
-              image = gist.files["thumbnail.png"]
-                ? gist.files["thumbnail.png"].raw_url
-                : "/assets/img/thumbnail.png"
+          var title = type.replace(/_/g," ").replace(/\w\S*/g, function(txt){
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+          })
 
-          var button = section.append("a")
-            .attr("class","example")
-            .attr("href","/examples/tree_map/9029130/")
+          section.append("h2")
+            .text(title+" Examples")
             .call(enter)
 
-          button.append("img")
-            .attr("src",image)
-            .attr("alt","tree_map/9029130")
+          var section_gists = merged.filter(function(g){
+            return g.category == type
+          })
 
-          button.append("div")
-            .attr("class","title")
-            .text(title)
+        }
+        else {
 
-          button.append("div")
-            .attr("class","date")
-            .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+          var section_gists = merged.slice(0)
 
         }
 
-      
+        section_gists.sort(function(a,b){
+          return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        })
 
-        
-        
+        if ("8") {
 
-        var gist = gists[9029781]
-
-        if (gist) {
-
-          var title = gist.description || gist.id,
-              image = gist.files["thumbnail.png"]
-                ? gist.files["thumbnail.png"].raw_url
-                : "/assets/img/thumbnail.png"
-
-          var button = section.append("a")
-            .attr("class","example")
-            .attr("href","/examples/scatter/9029781/")
-            .call(enter)
-
-          button.append("img")
-            .attr("src",image)
-            .attr("alt","scatter/9029781")
-
-          button.append("div")
-            .attr("class","title")
-            .text(title)
-
-          button.append("div")
-            .attr("class","date")
-            .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+          section_gists = section_gists.slice(0,parseInt("8"))
 
         }
 
-      
+        section_gists.forEach(function(gist) {
 
-        
-        
+          if (gist) {
 
-        var gist = gists[9037371]
+            var dateCreated = new Date(gist.created_at).getTime()
+              , dateUpdated = new Date(gist.updated_at).getTime()
+              , daysCreated = (Date.now() - dateCreated)/(24*60*60*1000)
+              , daysUpdated = (Date.now() - dateUpdated)/(24*60*60*1000)
 
-        if (gist) {
+            if (daysCreated <= 7) {
+              var banner = "New"
+            }
+            else if (daysUpdated <= 7) {
+              var banner = "Updated"
+            }
 
-          var title = gist.description || gist.id,
-              image = gist.files["thumbnail.png"]
-                ? gist.files["thumbnail.png"].raw_url
-                : "/assets/img/thumbnail.png"
+            var title = gist.description || gist.id,
+                image = gist.files["thumbnail.png"]
+                  ? gist.files["thumbnail.png"].raw_url
+                  : "/assets/img/thumbnail.png"
 
-          var button = section.append("a")
-            .attr("class","example")
-            .attr("href","/examples/line/9037371/")
-            .call(enter)
+            var button = section.append("a")
+              .attr("class","example")
+              .attr("href",type+"/"+gist.id)
+              .call(enter)
 
-          button.append("img")
-            .attr("src",image)
-            .attr("alt","line/9037371")
+            button.append("img")
+              .attr("src",image)
+              .attr("alt",title)
 
-          button.append("div")
-            .attr("class","title")
-            .text(title)
+            button.append("div")
+              .attr("class","title")
+              .text(title)
 
-          button.append("div")
-            .attr("class","date")
-            .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
+            if (banner) {
+              var dateSlug = "<span class='banner "+banner+"'>"+banner+"</span> "
+              if (banner == "Updated") {
+                dateSlug += "on "
+              }
+              dateSlug += new Date(gist.updated_at).toLocaleDateString()
+            }
 
-        }
+            if (dateSlug) {
 
-      
+              button.append("div")
+                .attr("class","date")
+                .html(dateSlug)
 
-        
-        
+            }
 
-        var gist = gists[9029462]
+          }
 
-        if (gist) {
+        })
 
-          var title = gist.description || gist.id,
-              image = gist.files["thumbnail.png"]
-                ? gist.files["thumbnail.png"].raw_url
-                : "/assets/img/thumbnail.png"
-
-          var button = section.append("a")
-            .attr("class","example")
-            .attr("href","/examples/stacked/9029462/")
-            .call(enter)
-
-          button.append("img")
-            .attr("src",image)
-            .attr("alt","stacked/9029462")
-
-          button.append("div")
-            .attr("class","title")
-            .text(title)
-
-          button.append("div")
-            .attr("class","date")
-            .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
-
-        }
-
-      
-
-        
-        
-
-        var gist = gists[9042807]
-
-        if (gist) {
-
-          var title = gist.description || gist.id,
-              image = gist.files["thumbnail.png"]
-                ? gist.files["thumbnail.png"].raw_url
-                : "/assets/img/thumbnail.png"
-
-          var button = section.append("a")
-            .attr("class","example")
-            .attr("href","/examples/geo_map/9042807/")
-            .call(enter)
-
-          button.append("img")
-            .attr("src",image)
-            .attr("alt","geo_map/9042807")
-
-          button.append("div")
-            .attr("class","title")
-            .text(title)
-
-          button.append("div")
-            .attr("class","date")
-            .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
-
-        }
-
-      
-
-        
-        
-
-        var gist = gists[9042919]
-
-        if (gist) {
-
-          var title = gist.description || gist.id,
-              image = gist.files["thumbnail.png"]
-                ? gist.files["thumbnail.png"].raw_url
-                : "/assets/img/thumbnail.png"
-
-          var button = section.append("a")
-            .attr("class","example")
-            .attr("href","/examples/network/9042919/")
-            .call(enter)
-
-          button.append("img")
-            .attr("src",image)
-            .attr("alt","network/9042919")
-
-          button.append("div")
-            .attr("class","title")
-            .text(title)
-
-          button.append("div")
-            .attr("class","date")
-            .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
-
-        }
-
-      
-
-        
-        
-
-        var gist = gists[9034389]
-
-        if (gist) {
-
-          var title = gist.description || gist.id,
-              image = gist.files["thumbnail.png"]
-                ? gist.files["thumbnail.png"].raw_url
-                : "/assets/img/thumbnail.png"
-
-          var button = section.append("a")
-            .attr("class","example")
-            .attr("href","/examples/rings/9034389/")
-            .call(enter)
-
-          button.append("img")
-            .attr("src",image)
-            .attr("alt","rings/9034389")
-
-          button.append("div")
-            .attr("class","title")
-            .text(title)
-
-          button.append("div")
-            .attr("class","date")
-            .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
-
-        }
-
-      
-
-        
-        
-
-        var gist = gists[9860999]
-
-        if (gist) {
-
-          var title = gist.description || gist.id,
-              image = gist.files["thumbnail.png"]
-                ? gist.files["thumbnail.png"].raw_url
-                : "/assets/img/thumbnail.png"
-
-          var button = section.append("a")
-            .attr("class","example")
-            .attr("href","/examples/tree_map/9860999/")
-            .call(enter)
-
-          button.append("img")
-            .attr("src",image)
-            .attr("alt","tree_map/9860999")
-
-          button.append("div")
-            .attr("class","title")
-            .text(title)
-
-          button.append("div")
-            .attr("class","date")
-            .text("Updated "+new Date(gist.updated_at).toLocaleDateString())
-
-        }
-
-      
+      })
 
     }
   })
+
+</script>
+
+
+<script src="/js/d3.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="/js/showdown.js"></script>
+<script>
 
   // Get current release
   d3.json("https://api.github.com/repos/alexandersimoes/d3plus/releases?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067",function(d){

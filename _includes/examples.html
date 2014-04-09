@@ -1,0 +1,176 @@
+<script src="/js/d3.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+
+<script>
+
+  if ("{{ include.container }}") {
+    var container = d3.select("#{{ include.container }}")
+  }
+
+  var section = container || d3.select("#content")
+  if (container) {
+    var loading = section.append("h2")
+  }
+  else {
+    var loading = d3.select("#content").append("section").append("h2")
+  }
+  loading.text("Loading...")
+
+  var order = "{{ include.order }}".split(".")
+
+  var categories = {}
+    , gists = []
+    , users = []
+
+  {% for p in site.pages %}
+    var url = "{{ p.url }}".split("/")
+      , user = "{{p.user}}"
+      , layout = "{{p.layout}}"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  {% endfor %}
+
+  if (users.indexOf("davelandry") < 0) {
+    users.push("davelandry")
+  }
+
+  var q = queue()
+  users.forEach(function(user){
+    var url = "https://api.github.com/users/"
+    url += user
+    url += "/gists?client_id={{site.github.id}}&client_secret={{site.github.secret}}"
+    q.defer(d3.json,url)
+  })
+
+  q.awaitAll(function(error,data){
+
+    if (error || data.length == 0) {
+      loading.text("Error loading Examples")
+    }
+    else {
+
+      var merged = []
+      merged = merged.concat.apply(merged,data).filter(function(g){
+        if (g.public && gists.indexOf(g.id) >= 0 && g.id in categories) {
+          g.category = categories[g.id]
+          return true
+        }
+        return false
+      })
+
+      function enter(elem) {
+
+        elem.style("opacity",0)
+          .transition().duration(400).delay(delay)
+          .style("opacity",1)
+
+        delay += 30
+
+      }
+
+      loading.remove()
+
+      var delay = 0
+      order.forEach(function(type){
+
+        var section = container || d3.select("#content").append("section")
+
+        if (type.length > 0) {
+
+          var title = type.replace(/_/g," ").replace(/\w\S*/g, function(txt){
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+          })
+
+          section.append("h2")
+            .text(title+" Examples")
+            .call(enter)
+
+          var section_gists = merged.filter(function(g){
+            return g.category == type
+          })
+
+        }
+        else {
+
+          var section_gists = merged.slice(0)
+
+        }
+
+        section_gists.sort(function(a,b){
+          return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        })
+
+        if ("{{ include.limit }}") {
+
+          section_gists = section_gists.slice(0,parseInt("{{ include.limit }}"))
+
+        }
+
+        section_gists.forEach(function(gist) {
+
+          if (gist) {
+
+            var dateCreated = new Date(gist.created_at).getTime()
+              , dateUpdated = new Date(gist.updated_at).getTime()
+              , daysCreated = (Date.now() - dateCreated)/(24*60*60*1000)
+              , daysUpdated = (Date.now() - dateUpdated)/(24*60*60*1000)
+
+            if (daysCreated <= 7) {
+              var banner = "New"
+            }
+            else if (daysUpdated <= 7) {
+              var banner = "Updated"
+            }
+
+            var title = gist.description || gist.id,
+                image = gist.files["thumbnail.png"]
+                  ? gist.files["thumbnail.png"].raw_url
+                  : "/assets/img/thumbnail.png"
+
+            var button = section.append("a")
+              .attr("class","example")
+              .attr("href",type+"/"+gist.id)
+              .call(enter)
+
+            button.append("img")
+              .attr("src",image)
+              .attr("alt",title)
+
+            button.append("div")
+              .attr("class","title")
+              .text(title)
+
+            if (banner) {
+              var dateSlug = "<span class='banner "+banner+"'>"+banner+"</span> "
+              if (banner == "Updated") {
+                dateSlug += "on "
+              }
+              dateSlug += new Date(gist.updated_at).toLocaleDateString()
+            }
+
+            if (dateSlug) {
+
+              button.append("div")
+                .attr("class","date")
+                .html(dateSlug)
+
+            }
+
+          }
+
+        })
+
+      })
+
+    }
+  })
+
+</script>
