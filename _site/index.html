@@ -536,6 +536,34 @@
       gists.push(gist)
     }
   
+    var url = "/node_modules/tiny-lr/node_modules/faye-websocket/spec/server.crt".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
+    var url = "/node_modules/tiny-lr/node_modules/faye-websocket/spec/server.key".split("/")
+      , user = ""
+      , layout = ""
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
     var url = "/workshops/03_19_2014/customizing/index.html".split("/")
       , user = ""
       , layout = "workshop"
@@ -1056,7 +1084,7 @@
 
             var button = section.append("a")
               .attr("class","example")
-              .attr("href",type+"/"+gist.id)
+              .attr("href","/examples/"+gist.category+"/"+gist.id)
               .call(enter)
 
             button.append("img")
