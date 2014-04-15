@@ -298,6 +298,20 @@
       gists.push(gist)
     }
   
+    var url = "/examples/advanced/10752135/index.html".split("/")
+      , user = ""
+      , layout = "example"
+    if (user != "" && users.indexOf(user) < 0) {
+      users.push(user)
+    }
+
+    if (layout && url.length == 5 && url[1] == "examples" && url[3] != "simple") {
+      var category = url[2]
+        , gist = url[3].split(".")[0]
+      categories[gist] = category
+      gists.push(gist)
+    }
+  
     var url = "/examples/advanced/9860411/index.html".split("/")
       , user = ""
       , layout = "example"
